@@ -22,9 +22,10 @@ export default function Navbar() {
   const currentItem = hoveredItem ?? activeItem;
 
   return (
+    <>
     <header
       dir="rtl"
-      className="relative z-50 w-full bg-background"
+      className="fixed top-0 right-0 left-0 z-50 w-full border-b border-primary/10 bg-background shadow-[0_6px_20px_rgba(0,120,153,0.06)]"
     >
       <div className="mx-auto flex h-[88px] max-w-[1500px] items-center justify-between px-4 md:px-6">
         <div className="flex h-20 w-[120px] shrink-0 items-center justify-center md:w-[150px]">
@@ -150,5 +151,7 @@ export default function Navbar() {
         </nav>
       </div>
     </header>
+    <div className="h-[88px]" aria-hidden="true" />
+    </>
   );
 }
