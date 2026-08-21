@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Navbar from "../../../components/navbar/page";
+import Footer from "../../../components/footer/page";
 import ServiceDetails from "../../../components/products/[slug]/page";
 import { getService, services } from "../../../components/products/data";
 
@@ -42,6 +43,7 @@ export default async function ServicePage({
     <main className="min-h-screen bg-background">
       <Navbar />
       <ServiceDetails service={service} />
+      <Footer />
     </main>
   );
 }
