@@ -19,7 +19,7 @@ export const services: Service[] = [
     title: "الرنين المغناطيسي",
     description:
       "تصوير دقيق للأعضاء والأنسجة بأجهزة رنين حديثة تساعد على التشخيص المبكر ووضع خطة علاج واضحة.",
-    image: "/hospital.PNG",
+    image: "/رنين.png",
     icon: "science",
     sections: [
       {
@@ -49,7 +49,7 @@ export const services: Service[] = [
     title: "القثطرة القلبية",
     description:
       "تشخيص وعلاج أمراض القلب والشرايين عبر قثطرة متقدمة بإشراف كادر استشاري متخصص.",
-    image: "/hero.jpg",
+    image: "/قثطرة.png",
     icon: "heart",
     sections: [
       {
@@ -79,7 +79,7 @@ export const services: Service[] = [
     title: "طب العيون",
     description:
       "فحص وعلاج أمراض العين والرؤية، مع إمكانيات جراحية وتشخيصية حديثة للحفاظ على سلامة البصر.",
-    image: "/hospital.PNG",
+    image: "/عيون.png",
     icon: "eye",
     sections: [
       {
