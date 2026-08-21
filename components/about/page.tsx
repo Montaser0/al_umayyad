@@ -56,17 +56,7 @@ export default function About() {
             ))}
           </div>
 
-          <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {stats.map((item) => (
-              <article
-                key={item.label}
-                className="rounded-xl border border-[#e8eef1] border-b-4 border-b-primary bg-white px-3 py-4 text-center shadow-[0_6px_18px_rgba(28,43,58,0.05)]"
-              >
-                <p className="text-xl font-bold text-primary md:text-2xl">{item.value}</p>
-                <p className="mt-1 text-xs text-[#6b7c89]">{item.label}</p>
-              </article>
-            ))}
-          </div>
+
 
           <div className="mt-8">
             <a
