@@ -2,116 +2,136 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section
-      dir="rtl"
-      className="relative w-full overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(23,186,212,0.18),transparent_28%),linear-gradient(180deg,#f9fdff_0%,#eef8fd_100%)] pb-16 pt-32 lg:pb-24 lg:pt-48"
-    >
-      <div
-        className="absolute inset-0 z-0 opacity-[0.14]"
-        style={{
-          backgroundImage: "radial-gradient(#1e3b56 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      ></div>
+    <section dir="rtl" className="w-full bg-[#f3f8fc]">
+      <div className="mx-auto max-w-[1280px] px-5 pb-16 pt-10 md:px-10 lg:px-12 lg:pb-20 lg:pt-14">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="max-w-[560px]">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#d7eef6] px-4 py-1.5 text-sm font-medium text-[#1e6f86]">
+              <span className="h-2 w-2 rounded-full bg-[#2a9bb5]" />
+              أفضل رعاية طبية في سوريا
+            </span>
 
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute -right-[10%] top-[10%] h-[500px] w-[500px] animate-[pulse_6s_ease-in-out_infinite] rounded-full bg-gradient-to-tr from-[#bfeaf9] to-[#e2f7ff] opacity-60 blur-[80px]"></div>
-        <div
-          className="absolute -left-[5%] bottom-[5%] h-[600px] w-[600px] animate-[pulse_8s_ease-in-out_infinite] rounded-full bg-gradient-to-bl from-[#9adff0] to-[#dff4fb] opacity-55 blur-[100px]"
-          style={{ animationDelay: "2s" }}
-        ></div>
-        <div
-          className="absolute left-[40%] top-[20%] h-[200px] w-[200px] animate-[pulse_5s_ease-in-out_infinite] rounded-full bg-[#17bad4] opacity-20 blur-[60px]"
-          style={{ animationDelay: "1s" }}
-        ></div>
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-[1500px] px-6 md:px-12 lg:px-16">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div className="max-w-[600px]">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#bfeaf9] bg-white/60 px-4 py-2 text-sm font-bold text-[#0ba3be] shadow-[0_8px_20px_rgba(23,186,212,0.12)] backdrop-blur-md">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#17bad4] opacity-75"></span>
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#17bad4]"></span>
-              </span>
-              رعاية طبية بمقاييس عالمية
-            </div>
-
-            <h1 className="text-5xl font-extrabold leading-[1.2] md:text-6xl lg:text-[4.5rem]">
-              <span className="bg-gradient-to-l from-[#1e3b56] to-[#0ba3be] bg-clip-text text-transparent">
-                مستشفى الأموي
+            <h1 className="mt-5 text-[2.1rem] font-bold leading-[1.35] text-[#1c2b3a] md:text-5xl">
+              رعايتكم أمانة،
+              <span className="relative mt-1 inline-block">
+                وصحتكم غايتنا
+                <svg
+                  className="absolute -bottom-2 left-0 w-full"
+                  viewBox="0 0 220 12"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M2 8c42-6 88-8 130-4 28 2.5 56 5 86 2"
+                    stroke="#7ec8d8"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                  />
+                </svg>
               </span>
             </h1>
 
-            <p className="mt-6 max-w-[480px] text-lg leading-relaxed text-[#5a7184]">
-              صرح طبي رائد يجمع بين نخبة من أمهر الأطباء وأحدث التقنيات العالمية، لنضع
-              صحتك وصحة عائلتك في أيدٍ أمينة برعاية استثنائية على مدار الساعة.
+            <p className="mt-6 max-w-[480px] text-[15px] leading-8 text-[#6b7c89]">
+              نلتزم بتقديم رعاية صحية بمعايير عالمية، عبر كادر طبي متخصص وتقنيات
+              حديثة تضمن سلامتكم وراحتكم في كل زيارة.
             </p>
 
-            <div className="mt-10 flex items-center gap-4">
-              <button className="group relative flex items-center justify-center gap-3 overflow-hidden rounded-full bg-[#1e3b56] px-8 py-4 text-base font-bold text-white shadow-[0_10px_30px_rgba(30,59,86,0.3)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(30,59,86,0.34)]">
-                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"></div>
-
-                <span className="relative z-10">عرض الخدمات</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
-                  />
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                className="inline-flex items-center gap-2 rounded-md bg-[#1a8fa8] px-5 py-5 text-sm font-bold text-white hover:bg-[#167c92]"
+              >
+                اكتشف خدماتنا
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15m0 0 6.75 6.75M4.5 12l6.75-6.75" />
                 </svg>
               </button>
+
+              <a
+                href="https://wa.me/9639XXXXXXXXX"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md border border-red-300 bg-white px-5 py-5 text-sm font-bold text-red-600 hover:bg-red-50"
+                style={{ borderColor: '#ee364e', color: '#ee364e' }}
+              >
+                <svg viewBox="0 0 24 24" className="h-6 w-6 text-red-600" fill="currentColor">
+                  <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.5 14.2V7.8L16.2 12l-5.7 4.2Z" />
+                </svg>
+                الاسعاف
+              </a>
+         
             </div>
           </div>
 
-          <div className="relative flex items-end justify-center lg:justify-end">
-            <div className="absolute bottom-16 right-0 z-20 flex items-center gap-4 rounded-full border border-white/40 bg-gradient-to-r from-[#17bad4]/90 to-[#0ba3be]/90 p-2 pl-6 shadow-[0_20px_40px_rgba(23,186,212,0.3)] backdrop-blur-md transition-transform duration-500 hover:-translate-y-2 lg:-left-12 lg:right-auto lg:bottom-28">
-              <div className="flex -space-x-3 space-x-reverse">
-                <div className="h-12 w-12 rounded-full border-2 border-white bg-gray-200"></div>
-                <div className="h-12 w-12 rounded-full border-2 border-white bg-gray-300"></div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-white bg-white text-xs font-bold text-[#0ba3be]">
-                  +99
-                </div>
-              </div>
-              <div className="text-white">
-                <p className="text-xl font-bold leading-none">150K +</p>
-                <p className="text-sm text-white/90">حالة تعافي</p>
-              </div>
-              <div className="absolute -top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#17bad4] shadow-md">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="h-5 w-5">
-                  <path d="M20 6L9 17l-5-5" />
-                </svg>
-              </div>
-            </div>
+          <div className="relative mx-auto w-full max-w-[520px]">
+            <div className="absolute -left-6 top-10 h-56 w-56 rounded-full bg-[#cfeaf3] blur-2xl" />
+            <div className="absolute -right-4 bottom-8 h-40 w-40 rounded-full bg-[#dbeff6] blur-2xl" />
 
-            <div className="absolute right-4 top-16 z-20 flex flex-col items-center justify-center rounded-[2rem] border border-white/60 bg-white/80 px-8 py-6 shadow-[0_20px_40px_rgba(30,59,86,0.08)] backdrop-blur-xl transition-transform duration-500 hover:-translate-y-2 lg:-right-4 lg:top-24">
-              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#eaf7fb] text-[#1e3b56]">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-              </div>
-              <p className="text-2xl font-extrabold text-[#1e3b56]">870+</p>
-              <p className="text-sm font-bold text-[#5a7184]">طبيب متخصص</p>
-            </div>
-
-            <div className="absolute left-10 top-10 z-0 h-4 w-4 animate-bounce rounded-full bg-[#17bad4] opacity-60"></div>
-            <div className="absolute bottom-10 right-20 z-0 h-3 w-3 animate-pulse rounded-full bg-[#1e3b56] opacity-40"></div>
-
-            <div className="relative z-10 w-[90%] max-w-[650px] transition-transform duration-700 hover:scale-[1.02]">
+            <div className="relative overflow-hidden rounded-[2rem] bg-[#e7f4f8]">
               <Image
                 src="/hero.jpg"
-                alt="فريق أطباء مستشفى الأموي"
-                width={800}
-                height={800}
+                alt="طبيبة في مستشفى الأموي"
+                width={720}
+                height={860}
                 priority
-                className="h-auto w-full object-contain drop-shadow-[0_30px_50px_rgba(30,59,86,0.15)]"
+                className="h-[420px] w-full object-cover object-top md:h-[480px]"
               />
+            </div>
+
+            <div className="absolute right-4 top-8 flex items-center gap-2 rounded-2xl bg-white px-3 py-2 shadow-[0_8px_24px_rgba(28,43,58,0.1)] md:right-8">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1a8fa8] text-white">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" className="h-3.5 w-3.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M20 6 9 17l-5-5" />
+                </svg>
+              </span>
+              <span className="text-sm font-semibold text-[#1c2b3a]">+30 موثّق</span>
+            </div>
+
+            <div className="absolute bottom-8 left-4 flex items-center gap-2 rounded-2xl bg-white px-3 py-2 shadow-[0_8px_24px_rgba(28,43,58,0.1)] md:left-8">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ea] text-[#e08a5c]">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+                  <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3Zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13Zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5Z" />
+                </svg>
+              </span>
+              <span className="text-sm font-semibold text-[#1c2b3a]">+200 طبيب ممارس</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 grid gap-8 rounded-[1.6rem] bg-white px-6 py-7 shadow-[0_12px_40px_rgba(28,43,58,0.06)] sm:grid-cols-3 md:mt-16 md:px-10">
+          <div className="flex items-center gap-4">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#fff1ea] text-[#e08a5c]">
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
+                <path d="M12 2 4 6v6c0 5 3.4 9.4 8 10.5C16.6 21.4 20 17 20 12V6l-8-4Zm1 13h-2v-2H9v-2h2V9h2v2h2v2h-2v2Z" />
+              </svg>
+            </span>
+            <div>
+              <p className="text-lg font-bold text-[#1c2b3a]">24/7</p>
+              <p className="text-sm text-[#6b7c89]">رعاية إسعافية</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 sm:justify-center">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#e7f4f8] text-[#1a8fa8]">
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
+                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3Zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13Zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5Z" />
+              </svg>
+            </span>
+            <div>
+              <p className="text-lg font-bold text-[#1c2b3a]">+200</p>
+              <p className="text-sm text-[#6b7c89]">طبيب واستشاري</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 sm:justify-end">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#e7f4f8] text-[#1a8fa8]">
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
+                <path d="M19 10h-2V8c0-1.1-.9-2-2-2h-2V4H9v2H7c-1.1 0-2 .9-2 2v2H3v9c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-9h-2Zm-9 8H8v-4h2v4Zm4 0h-2v-4h2v4Zm4 0h-2v-4h2v4Zm0-6H6V8h12v4Z" />
+              </svg>
+            </span>
+            <div>
+              <p className="text-lg font-bold text-[#1c2b3a]">+50</p>
+              <p className="text-sm text-[#6b7c89]">عيادة تخصصية</p>
             </div>
           </div>
         </div>
