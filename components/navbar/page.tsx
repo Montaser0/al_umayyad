@@ -2,6 +2,7 @@
 
 import Close from "@mui/icons-material/Close";
 import Menu from "@mui/icons-material/Menu";
+import Phone from "@mui/icons-material/Phone";
 import { useState } from "react";
 
 const navItems = [
@@ -19,7 +20,7 @@ export default function Navbar() {
   return (
     <header
       dir="rtl"
-      className="relative z-50 w-full border-b border-[#e8edf2] bg-white shadow-[0_6px_20px_rgba(30,59,86,0.06)]"
+      className="relative z-50 w-full border-b border-primary/10 bg-background shadow-[0_6px_20px_rgba(0,120,153,0.06)]"
     >
       {/* =========================
           الهيدر
@@ -36,7 +37,7 @@ export default function Navbar() {
               w-auto
               max-w-none
               object-contain
-              drop-shadow-[0_8px_18px_rgba(30,59,86,0.1)]
+              drop-shadow-[0_8px_18px_rgba(0,120,153,0.1)]
               md:h-60
             "
           />
@@ -54,7 +55,7 @@ export default function Navbar() {
             gap-3
             text-base
             font-bold
-            text-[#1d3a4e]
+            text-foreground
             md:flex
             lg:gap-5
           "
@@ -70,8 +71,8 @@ export default function Navbar() {
                 py-3
                 transition-all
                 duration-200
-                hover:bg-[#f1f8fa]
-                hover:text-[#0ba3be]
+                hover:bg-primary/10
+                hover:text-primary
               "
             >
               {item}
@@ -88,23 +89,27 @@ export default function Navbar() {
           <button
             type="button"
             className="
+              inline-flex
+              items-center
+              gap-2
               rounded-md
-              bg-[#1e3b56]
+              bg-primary
               px-4
               py-3
               text-sm
               font-bold
-              text-white
-              shadow-[0_12px_25px_rgba(30,59,86,0.18)]
+              text-background
+              shadow-[0_12px_25px_rgba(0,120,153,0.18)]
               transition-all
               duration-300
               hover:-translate-y-0.5
-              hover:bg-[#16314a]
+              hover:bg-primary/90
               md:px-6
               md:py-4
               md:text-lg
             "
           >
+            <Phone sx={{ fontSize: 20 }} />
             تواصل معنا
           </button>
 
@@ -122,14 +127,14 @@ export default function Navbar() {
               justify-center
               rounded-md
               border
-              border-[#d8e5eb]
-              bg-white
+              border-primary/20
+              bg-background
               text-2xl
-              text-[#1e3b56]
+              text-foreground
               shadow-sm
               transition-all
               duration-200
-              hover:bg-[#f1f8fa]
+              hover:bg-primary/10
               md:hidden
             "
           >
@@ -145,8 +150,8 @@ export default function Navbar() {
         className={`
           overflow-hidden
           border-t
-          border-[#e8edf2]
-          bg-white
+          border-primary/10
+          bg-background
           transition-all
           duration-300
           md:hidden
@@ -165,16 +170,16 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="
                 border-b
-                border-[#eef2f5]
+                border-primary/10
                 px-4
                 py-6
                 text-base
                 font-bold
-                text-[#1d3a4e]
+                text-foreground
                 transition-colors
                 duration-200
-                hover:bg-[#f1f8fa]
-                hover:text-[#0ba3be]
+                hover:bg-primary/10
+                hover:text-primary
               "
             >
               {item}
