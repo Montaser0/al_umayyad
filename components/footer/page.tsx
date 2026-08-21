@@ -34,7 +34,7 @@ export default function Footer() {
             <ul className="mt-6 space-y-5 text-sm text-background">
               <li className="flex items-center justify-center gap-2">
                 <LocationOn sx={{ fontSize: 22 }} className="text-primary" />
-                سوريا - دمشق
+                سوريا - حلب - الباب - مدينة بزاعة
               </li>
               <li className="flex items-center justify-center gap-2">
                 <Phone sx={{ fontSize: 22 }} className="text-primary" />

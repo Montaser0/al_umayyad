@@ -70,7 +70,7 @@ export default function Navbar() {
             <img
               src="/logo.PNG"
               alt="شعار الشركة"
-              className="h-50 w-auto max-w-none object-contain drop-shadow-[0_8px_18px_rgba(0,120,153,0.1)] md:h-60"
+              className="h-40 w-auto max-w-none object-contain drop-shadow-[0_8px_18px_rgba(0,120,153,0.1)] md:h-60"
             />
           </Link>
 
