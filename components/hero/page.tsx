@@ -16,7 +16,7 @@ export default function Hero() {
             alt="مبنى مستشفى الأموي"
             fill
             priority
-            className="scale-105 object-cover blur-[5px]"
+            className="scale-105 object-cover blur-[3px]"
           />
           <div className="absolute inset-0 bg-foreground/60" />
         </div>

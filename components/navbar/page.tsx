@@ -3,6 +3,7 @@
 import Close from "@mui/icons-material/Close";
 import Menu from "@mui/icons-material/Menu";
 import Phone from "@mui/icons-material/Phone";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -40,19 +41,22 @@ export default function Navbar() {
 
   useEffect(() => {
     if (pathname.startsWith("/products")) {
-      setActiveItem("خدماتنا");
-      return;
+      const timer = window.setTimeout(() => setActiveItem("خدماتنا"), 0);
+      return () => window.clearTimeout(timer);
     }
 
     if (pathname !== "/") return;
 
-    const scrollToHash = () => {
+    const syncActiveItem = () => {
       const hash = window.location.hash;
+      const matchingItem = navItems.find((item) => item.hash === hash);
+      setActiveItem(matchingItem?.label ?? navItems[0].label);
+
       if (!hash) return;
       document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: "smooth" });
     };
 
-    const timer = window.setTimeout(scrollToHash, 50);
+    const timer = window.setTimeout(syncActiveItem, 50);
     return () => window.clearTimeout(timer);
   }, [pathname]);
 
@@ -67,9 +71,12 @@ export default function Navbar() {
             href="/"
             className="flex h-20 w-[120px] shrink-0 items-center justify-center md:w-[150px]"
           >
-            <img
+            <Image
               src="/logo.PNG"
               alt="شعار الشركة"
+              width={180}
+              height={180}
+              priority
               className="h-40 w-auto max-w-none object-contain drop-shadow-[0_8px_18px_rgba(0,120,153,0.1)] md:h-60"
             />
           </Link>
