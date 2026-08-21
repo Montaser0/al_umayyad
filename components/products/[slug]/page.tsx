@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import East from "@mui/icons-material/East";
 import type { Service } from "../data";
 
 export default function ServiceDetails({ service }: { service: Service }) {
@@ -16,7 +17,14 @@ export default function ServiceDetails({ service }: { service: Service }) {
         <div className="absolute inset-0 bg-foreground/70" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-5 py-20 text-center text-background">
-          <span className="inline-block rounded-md border border-primary px-4 py-1.5 text-sm font-semibold text-primary">
+          <Link
+            href="/#services"
+            className="mb-6 inline-flex items-center gap-2 rounded-lg bg-background/15 px-4 py-2 text-sm font-bold text-background hover:bg-background/25"
+          >
+            <East sx={{ fontSize: 18 }} />
+            رجوع
+          </Link>
+          <span className="mx-auto mt-4 block w-fit rounded-md border border-primary px-4 py-1.5 text-sm font-semibold text-primary">
             {service.title}
           </span>
           <h1 className="mt-5 text-3xl font-bold md:text-5xl">{service.title}</h1>

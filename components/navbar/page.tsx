@@ -3,21 +3,31 @@
 import Close from "@mui/icons-material/Close";
 import Menu from "@mui/icons-material/Menu";
 import Phone from "@mui/icons-material/Phone";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const navItems = [
-  { label: "الرئيسية", href: "#" },
-  { label: "من نحن", href: "#about" },
-  { label: "خدماتنا", href: "#services" },
-  { label: "لماذا الأموي", href: "#why-us" },
-  { label: "الأسئلة", href: "#faq" },
-  { label: "موقعنا", href: "#location" },
-  { label: "التواصل", href: "#contact" },
+  { label: "الرئيسية", hash: "" },
+  { label: "من نحن", hash: "#about" },
+  { label: "خدماتنا", hash: "#services" },
+  { label: "لماذا الأموي", hash: "#why-us" },
+  { label: "الأسئلة", hash: "#faq" },
+  { label: "موقعنا", hash: "#location" },
+  { label: "التواصل", hash: "#contact" },
 ];
 
+function itemHref(pathname: string, hash: string) {
+  if (!hash) return "/";
+  return pathname === "/" ? hash : `/${hash}`;
+}
+
 export default function Navbar() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState(navItems[0].label);
+  const [activeItem, setActiveItem] = useState(
+    pathname.startsWith("/products") ? "خدماتنا" : navItems[0].label,
+  );
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const currentItem = hoveredItem ?? activeItem;
 
@@ -28,6 +38,24 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (pathname.startsWith("/products")) {
+      setActiveItem("خدماتنا");
+      return;
+    }
+
+    if (pathname !== "/") return;
+
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+      document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    const timer = window.setTimeout(scrollToHash, 50);
+    return () => window.clearTimeout(timer);
+  }, [pathname]);
+
   return (
     <>
       <header
@@ -35,13 +63,16 @@ export default function Navbar() {
         className="fixed top-0 right-0 left-0 z-50 w-full border-b border-primary/10 bg-background shadow-[0_6px_20px_rgba(0,120,153,0.06)]"
       >
         <div className="mx-auto flex h-[88px] max-w-[1500px] items-center justify-between px-4 md:px-6">
-          <div className="flex h-20 w-[120px] shrink-0 items-center justify-center md:w-[150px]">
+          <Link
+            href="/"
+            className="flex h-20 w-[120px] shrink-0 items-center justify-center md:w-[150px]"
+          >
             <img
               src="/logo.PNG"
               alt="شعار الشركة"
               className="h-50 w-auto max-w-none object-contain drop-shadow-[0_8px_18px_rgba(0,120,153,0.1)] md:h-60"
             />
-          </div>
+          </Link>
 
           <nav
             className="hidden flex-1 items-center justify-center gap-2 text-[17px] font-medium text-[#4a4a4a] lg:flex"
@@ -51,9 +82,9 @@ export default function Navbar() {
               const isCurrent = item.label === currentItem;
 
               return (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  href={itemHref(pathname, item.hash)}
                   onClick={() => setActiveItem(item.label)}
                   onMouseEnter={() => setHoveredItem(item.label)}
                   className={`whitespace-nowrap rounded-xl px-5 py-2.5 transition-all duration-300 ${
@@ -63,14 +94,14 @@ export default function Navbar() {
                   }`}
                 >
                   {item.label}
-                </a>
+                </Link>
               );
             })}
           </nav>
 
           <div className="flex shrink-0 items-center gap-2 md:gap-3">
-            <a
-              href="#contact"
+            <Link
+              href={itemHref(pathname, "#contact")}
               className="
                 inline-flex
                 items-center
@@ -94,7 +125,7 @@ export default function Navbar() {
             >
               <Phone sx={{ fontSize: 20 }} />
               تواصل معنا
-            </a>
+            </Link>
 
             <button
               type="button"
@@ -139,9 +170,9 @@ export default function Navbar() {
             const isActive = item.label === activeItem;
 
             return (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                href={itemHref(pathname, item.hash)}
                 onClick={() => {
                   setActiveItem(item.label);
                   setIsOpen(false);
@@ -153,7 +184,7 @@ export default function Navbar() {
                 }`}
               >
                 {item.label}
-              </a>
+              </Link>
             );
           })}
         </nav>
