@@ -14,9 +14,9 @@ export default function ServiceDetails({ service }: { service: Service }) {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-foreground/70" />
+        <div className="absolute inset-0 bg-foreground/70"></div>
 
-        <div className="relative z-10 mx-auto max-w-3xl px-5 py-20 text-center text-background">
+        <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-5 py-20 text-center text-background">
           <Link
             href="/#services"
             className="mb-6 inline-flex items-center gap-2 rounded-lg bg-background/15 px-4 py-2 text-sm font-bold text-background hover:bg-background/25"
@@ -24,7 +24,7 @@ export default function ServiceDetails({ service }: { service: Service }) {
             <East sx={{ fontSize: 18 }} />
             رجوع
           </Link>
-          <span className="mx-auto mt-4 block w-fit rounded-md border border-primary px-4 py-1.5 text-sm font-semibold text-primary">
+          <span className="rounded-md border border-primary px-4 py-1.5 text-sm font-semibold text-primary">
             {service.title}
           </span>
           <h1 className="mt-5 text-3xl font-bold md:text-5xl">{service.title}</h1>
@@ -42,7 +42,7 @@ export default function ServiceDetails({ service }: { service: Service }) {
           <p className="mt-3 text-sm text-foreground/55 md:text-base">
             وحدات متخصصة ضمن {service.title} لتغطية التشخيص والعلاج والمتابعة.
           </p>
-          <span className="mx-auto mt-4 block h-[3px] w-20 rounded-full bg-primary" />
+          <span className="mx-auto mt-4 block h-[3px] w-20 rounded-full bg-primary"></span>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
