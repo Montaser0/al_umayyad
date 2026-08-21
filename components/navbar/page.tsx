@@ -1,5 +1,7 @@
 "use client";
 
+import Close from "@mui/icons-material/Close";
+import Menu from "@mui/icons-material/Menu";
 import { useState } from "react";
 
 const navItems = [
@@ -131,7 +133,7 @@ export default function Navbar() {
               md:hidden
             "
           >
-            {isOpen ? "✕" : "☰"}
+            {isOpen ? <Close /> : <Menu />}
           </button>
         </div>
       </div>

@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import Check from "@mui/icons-material/Check";
+import Phone from "@mui/icons-material/Phone";
 
 const features = [
   "رعاية طبية وفق معايير مهنية دقيقة",
@@ -25,8 +29,9 @@ export default function About() {
 
           <h2 className="mt-4 text-3xl font-bold leading-[1.45] text-[#1c2b3a] md:text-[2.35rem]">
             رؤية طبية متطورة
+            لرعاية أفضل
+
             <span className="mt-1 block">
-              لرعاية أفضل
               <span className="mt-3 block h-[6px] w-28 rounded-full bg-primary" />
             </span>
           </h2>
@@ -44,9 +49,7 @@ export default function About() {
                 className="flex items-start gap-3 rounded-xl border border-[#e8eef1] bg-white px-4 py-4 shadow-[0_6px_18px_rgba(28,43,58,0.05)]"
               >
                 <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" className="h-3.5 w-3.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M20 6 9 17l-5-5" />
-                  </svg>
+                  <Check sx={{ fontSize: 14 }} />
                 </span>
                 <p className="text-sm font-semibold leading-6 text-[#1c2b3a]">{item}</p>
               </article>
@@ -70,23 +73,21 @@ export default function About() {
               href="#contact"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-[#006480]"
             >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
-                <path d="M6.6 10.8c1.4 2.7 3.9 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2.2 2.2Z" />
-              </svg>
+              <Phone sx={{ fontSize: 16 }} />
               اتصل بنا
             </a>
           </div>
         </div>
 
         <div className="w-full overflow-hidden rounded-2xl shadow-[0_12px_40px_rgba(0,120,153,0.28)]">
-  <Image
-    src="/hospital.PNG"
-    alt="مبنى مستشفى الأموي"
-    width={1400}
-    height={600}
-    className="h-[260px] w-full object-cover sm:h-[300px] lg:h-[400px]"
-  />
-</div>
+          <Image
+            src="/hospital.PNG"
+            alt="مبنى مستشفى الأموي"
+            width={1400}
+            height={600}
+            className="h-[260px] w-full object-cover sm:h-[300px] lg:h-[400px]"
+          />
+        </div>
       </div>
     </section>
   );
