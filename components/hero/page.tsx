@@ -2,12 +2,11 @@
 
 import Image from "next/image";
 import Check from "@mui/icons-material/Check";
-import Emergency from "@mui/icons-material/Emergency";
 import Groups from "@mui/icons-material/Groups";
 import LocalHospital from "@mui/icons-material/LocalHospital";
 import MedicalServices from "@mui/icons-material/MedicalServices";
-import PlayCircle from "@mui/icons-material/PlayCircle";
 import West from "@mui/icons-material/West";
+import AmbulanceIcon from "../icons/AmbulanceIcon";
 
 export default function Hero() {
   return (
@@ -60,7 +59,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-md border border-secondary bg-background px-5 py-5 text-sm font-bold text-secondary hover:bg-secondary/10"
               >
-                <PlayCircle sx={{ fontSize: 24 }} className="text-secondary" />
+                <AmbulanceIcon sx={{ fontSize: 24 }} className="text-secondary" />
                 الاسعاف
               </a>
             </div>
@@ -81,54 +80,124 @@ export default function Hero() {
               />
             </div>
 
-            <div className="absolute right-4 top-8 flex items-center gap-2 rounded-2xl bg-background px-3 py-2 shadow-[0_8px_24px_rgba(28,43,58,0.1)] md:right-8">
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-background">
-                <Check sx={{ fontSize: 14 }} />
-              </span>
-              <span className="text-sm font-semibold text-foreground">+30 موثّق</span>
-            </div>
+{/* =========================
+    البطاقات العائمة على الصورة
+========================= */}
 
-            <div className="absolute bottom-8 left-4 flex items-center gap-2 rounded-2xl bg-background px-3 py-2 shadow-[0_8px_24px_rgba(28,43,58,0.1)] md:left-8">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/15 text-primary">
-                <Groups sx={{ fontSize: 16 }} />
-              </span>
-              <span className="text-sm font-semibold text-foreground">+200 طبيب ممارس</span>
-            </div>
+<div className="absolute right-4 top-6 flex items-center gap-3 rounded-2xl border border-white/70 bg-white/95 px-4 py-3 shadow-[0_12px_35px_rgba(28,43,58,0.14)] backdrop-blur-md md:right-7 md:top-8">
+  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
+    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white">
+      <Check sx={{ fontSize: 14 }} />
+    </span>
+  </span>
+
+  <div className="leading-tight">
+    <p className="text-sm font-bold text-foreground">
+      +30
+    </p>
+    <p className="mt-0.5 text-[11px] text-foreground/55">
+      سنة من الخبرة
+    </p>
+  </div>
+</div>
+
+
+<div className="absolute bottom-6 left-4 flex items-center gap-3 rounded-2xl border border-white/70 bg-white/95 px-4 py-3 shadow-[0_12px_35px_rgba(28,43,58,0.14)] backdrop-blur-md md:bottom-8 md:left-7">
+  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+    <Groups sx={{ fontSize: 19 }} />
+  </span>
+
+  <div className="leading-tight">
+    <p className="text-sm font-bold text-foreground">
+      +200
+    </p>
+    <p className="mt-0.5 text-[11px] text-foreground/55">
+      طبيب واستشاري
+    </p>
+  </div>
+</div>
           </div>
         </div>
 
-        <div className="mt-12 grid gap-8 rounded-[1.6rem] bg-background px-6 py-7 shadow-[0_12px_40px_rgba(28,43,58,0.06)] sm:grid-cols-3 md:mt-16 md:px-10">
-          <div className="flex items-center gap-4">
-            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-secondary/10 text-secondary">
-              <Emergency sx={{ fontSize: 24 }} />
-            </span>
-            <div>
-              <p className="text-lg font-bold text-foreground">24/7</p>
-              <p className="text-sm text-foreground/55">رعاية إسعافية</p>
-            </div>
-          </div>
+{/* =========================
+    شريط الإحصائيات
+========================= */}
 
-          <div className="flex items-center gap-4 sm:justify-center">
-            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-              <MedicalServices sx={{ fontSize: 24 }} />
-            </span>
-            <div>
-              <p className="text-lg font-bold text-foreground">+200</p>
-              <p className="text-sm text-foreground/55">طبيب واستشاري</p>
-            </div>
-          </div>
+<div className="mt-10 grid overflow-hidden rounded-[2rem] border border-[#e4edf1] bg-white shadow-[0_20px_60px_rgba(28,43,58,0.08)] sm:grid-cols-3 md:mt-14">
 
-          <div className="flex items-center gap-4 sm:justify-end">
-            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-              <LocalHospital sx={{ fontSize: 24 }} />
-            </span>
-            <div>
-              <p className="text-lg font-bold text-foreground">+50</p>
-              <p className="text-sm text-foreground/55">عيادة تخصصية</p>
-            </div>
-          </div>
-        </div>
+  {/* الإسعاف */}
+  <div className="group relative flex items-center gap-5 px-6 py-7 transition-all duration-300 hover:bg-[#f8fbfc] md:px-8 lg:py-8">
+    <div className="absolute inset-y-7 right-0 hidden w-px bg-[#e8eef1] sm:block" />
+
+    <span className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-[1.25rem] bg-[#fff1f2] text-secondary shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
+      <AmbulanceIcon sx={{ fontSize: 30 }} />
+
+      <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full border-2 border-white bg-secondary" />
+    </span>
+
+    <div>
+      <p className="text-[1.65rem] font-black leading-none tracking-tight text-foreground">
+        24/7
+      </p>
+
+      <p className="mt-2 text-sm font-semibold text-foreground/55">
+        رعاية إسعافية متواصلة
+      </p>
+
+      <div className="mt-3 h-1 w-8 rounded-full bg-secondary/60 transition-all duration-300 group-hover:w-12" />
+    </div>
+  </div>
+
+
+  {/* الأطباء */}
+  <div className="group relative flex items-center gap-5 border-t border-[#edf1f3] px-6 py-7 transition-all duration-300 hover:bg-[#f8fbfc] sm:border-t-0 md:px-8 lg:py-8">
+    <div className="absolute inset-y-7 right-0 hidden w-px bg-[#e8eef1] sm:block" />
+
+    <span className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-[1.25rem] bg-[#eaf7fa] text-primary shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
+      <MedicalServices sx={{ fontSize: 30 }} />
+
+      <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full border-2 border-white bg-primary" />
+    </span>
+
+    <div>
+      <p className="text-[1.65rem] font-black leading-none tracking-tight text-foreground">
+        +200
+      </p>
+
+      <p className="mt-2 text-sm font-semibold text-foreground/55">
+        طبيب واستشاري متخصص
+      </p>
+
+      <div className="mt-3 h-1 w-8 rounded-full bg-primary/60 transition-all duration-300 group-hover:w-12" />
+    </div>
+  </div>
+
+
+  {/* العيادات */}
+  <div className="group flex items-center gap-5 border-t border-[#edf1f3] px-6 py-7 transition-all duration-300 hover:bg-[#f8fbfc] sm:border-t-0 md:px-8 lg:py-8">
+    <span className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-[1.25rem] bg-[#eaf7fa] text-primary shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
+      <LocalHospital sx={{ fontSize: 30 }} />
+
+      <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full border-2 border-white bg-primary" />
+    </span>
+
+    <div>
+      <p className="text-[1.65rem] font-black leading-none tracking-tight text-foreground">
+        +50
+      </p>
+
+      <p className="mt-2 text-sm font-semibold text-foreground/55">
+        عيادة تخصصية متكاملة
+      </p>
+
+      <div className="mt-3 h-1 w-8 rounded-full bg-primary/60 transition-all duration-300 group-hover:w-12" />
+    </div>
+  </div>
+
+</div>
       </div>
+      
+      
     </section>
   );
 }
