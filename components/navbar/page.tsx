@@ -6,82 +6,63 @@ import Phone from "@mui/icons-material/Phone";
 import { useState } from "react";
 
 const navItems = [
-  "الرئيسية",
-  "من نحن",
-  "تجربتنا",
-  "الأعمال السابقة",
-  "الأخبار",
-  "اتصل بنا",
+  { label: "الرئيسية", href: "#" },
+  { label: "من نحن", href: "#about" },
+  { label: "خدماتنا", href: "#services" },
+  { label: "لماذا الأموي", href: "#why-us" },
+  { label: "الأسئلة", href: "#faq" },
+  { label: "موقعنا", href: "#location" },
+  { label: "التواصل", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState(navItems[0]);
+  const [activeItem, setActiveItem] = useState(navItems[0].label);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const currentItem = hoveredItem ?? activeItem;
 
   return (
     <header
       dir="rtl"
-      className="relative z-50 w-full border-b border-primary/10 bg-background shadow-[0_6px_20px_rgba(0,120,153,0.06)]"
+      className="relative z-50 w-full bg-background"
     >
-      {/* =========================
-          الهيدر
-      ========================== */}
       <div className="mx-auto flex h-[88px] max-w-[1500px] items-center justify-between px-4 md:px-6">
-
-        {/* الشعار */}
         <div className="flex h-20 w-[120px] shrink-0 items-center justify-center md:w-[150px]">
           <img
             src="/logo.PNG"
             alt="شعار الشركة"
-            className="
-              h-50
-              w-auto
-              max-w-none
-              object-contain
-              drop-shadow-[0_8px_18px_rgba(0,120,153,0.1)]
-              md:h-60
-            "
+            className="h-50 w-auto max-w-none object-contain drop-shadow-[0_8px_18px_rgba(0,120,153,0.1)] md:h-60"
           />
         </div>
 
-        {/* =========================
-            روابط الكمبيوتر
-        ========================== */}
         <nav
-          className="hidden flex-1 items-center justify-center gap-2 text-base font-bold text-foreground md:flex lg:gap-3"
+          className="hidden flex-1 items-center justify-center gap-2 text-[17px] font-medium text-[#4a4a4a] lg:flex"
           onMouseLeave={() => setHoveredItem(null)}
         >
           {navItems.map((item) => {
-            const isCurrent = item === currentItem;
+            const isCurrent = item.label === currentItem;
 
             return (
               <a
-                key={item}
-                href="#"
-                onClick={() => setActiveItem(item)}
-                onMouseEnter={() => setHoveredItem(item)}
-                className={`whitespace-nowrap rounded-xl px-4 py-3 transition-all duration-300 ${
+                key={item.label}
+                href={item.href}
+                onClick={() => setActiveItem(item.label)}
+                onMouseEnter={() => setHoveredItem(item.label)}
+                className={`whitespace-nowrap rounded-xl px-5 py-2.5 transition-all duration-300 ${
                   isCurrent
                     ? "bg-primary text-background"
-                    : "bg-transparent text-foreground"
+                    : "bg-transparent text-[#4a4a4a] hover:text-primary"
                 }`}
               >
-                {item}
+                {item.label}
               </a>
             );
           })}
         </nav>
 
-        {/* =========================
-            زر تواصل + زر القائمة
-        ========================== */}
         <div className="flex shrink-0 items-center gap-2 md:gap-3">
-
-          {/* تواصل معنا */}
-          <button
-            type="button"
+          <a
+            href="#contact"
             className="
               inline-flex
               items-center
@@ -105,9 +86,8 @@ export default function Navbar() {
           >
             <Phone sx={{ fontSize: 20 }} />
             تواصل معنا
-          </button>
+          </a>
 
-          {/* زر القائمة - يظهر فقط على الهاتف */}
           <button
             type="button"
             aria-label="فتح القائمة"
@@ -129,7 +109,7 @@ export default function Navbar() {
               transition-all
               duration-200
               hover:bg-primary/10
-              md:hidden
+              lg:hidden
             "
           >
             {isOpen ? <Close /> : <Menu />}
@@ -137,9 +117,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* =========================
-          قائمة الهاتف
-      ========================== */}
       <div
         className={`
           overflow-hidden
@@ -148,30 +125,26 @@ export default function Navbar() {
           bg-background
           transition-all
           duration-300
-          md:hidden
-          ${
-            isOpen
-              ? "max-h-[500px] opacity-100"
-              : "max-h-0 opacity-0"
-          }
+          lg:hidden
+          ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}
         `}
       >
         <nav className="flex flex-col px-4 py-3">
           {navItems.map((item) => (
             <a
-              key={item}
-              href="#"
+              key={item.label}
+              href={item.href}
               onClick={() => {
-                setActiveItem(item);
+                setActiveItem(item.label);
                 setIsOpen(false);
               }}
-              className={`border-b border-primary/10 px-4 py-6 text-base font-bold transition-all duration-300 ${
-                item === activeItem
+              className={`rounded-xl px-4 py-4 text-base font-medium transition-all duration-300 ${
+                item.label === activeItem
                   ? "bg-primary text-background"
-                  : "bg-transparent text-foreground"
+                  : "bg-transparent text-[#4a4a4a]"
               }`}
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </nav>
