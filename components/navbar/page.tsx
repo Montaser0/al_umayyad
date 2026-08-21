@@ -16,6 +16,9 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState(navItems[0]);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const currentItem = hoveredItem ?? activeItem;
 
   return (
     <header
@@ -47,37 +50,28 @@ export default function Navbar() {
             روابط الكمبيوتر
         ========================== */}
         <nav
-          className="
-            hidden
-            flex-1
-            items-center
-            justify-center
-            gap-3
-            text-base
-            font-bold
-            text-foreground
-            md:flex
-            lg:gap-5
-          "
+          className="hidden flex-1 items-center justify-center gap-2 text-base font-bold text-foreground md:flex lg:gap-3"
+          onMouseLeave={() => setHoveredItem(null)}
         >
-          {navItems.map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="
-                whitespace-nowrap
-                rounded-full
-                px-4
-                py-3
-                transition-all
-                duration-200
-                hover:bg-primary/10
-                hover:text-primary
-              "
-            >
-              {item}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isCurrent = item === currentItem;
+
+            return (
+              <a
+                key={item}
+                href="#"
+                onClick={() => setActiveItem(item)}
+                onMouseEnter={() => setHoveredItem(item)}
+                className={`whitespace-nowrap rounded-xl px-4 py-3 transition-all duration-300 ${
+                  isCurrent
+                    ? "bg-primary text-background"
+                    : "bg-transparent text-foreground"
+                }`}
+              >
+                {item}
+              </a>
+            );
+          })}
         </nav>
 
         {/* =========================
@@ -167,20 +161,15 @@ export default function Navbar() {
             <a
               key={item}
               href="#"
-              onClick={() => setIsOpen(false)}
-              className="
-                border-b
-                border-primary/10
-                px-4
-                py-6
-                text-base
-                font-bold
-                text-foreground
-                transition-colors
-                duration-200
-                hover:bg-primary/10
-                hover:text-primary
-              "
+              onClick={() => {
+                setActiveItem(item);
+                setIsOpen(false);
+              }}
+              className={`border-b border-primary/10 px-4 py-6 text-base font-bold transition-all duration-300 ${
+                item === activeItem
+                  ? "bg-primary text-background"
+                  : "bg-transparent text-foreground"
+              }`}
             >
               {item}
             </a>

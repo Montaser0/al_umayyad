@@ -37,7 +37,7 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="mt-6 max-w-[480px] text-[15px] leading-8 text-foreground/55">
+            <p className="mt-6 max-w-[480px] text-[20px] leading-8 text-foreground/55">
               نلتزم بتقديم رعاية صحية بمعايير عالمية، عبر كادر طبي متخصص وتقنيات
               حديثة تضمن سلامتكم وراحتكم في كل زيارة.
             </p>
