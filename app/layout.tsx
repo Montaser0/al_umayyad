@@ -11,8 +11,8 @@ const expoArabic = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Al Umayyad",
-  description: "Landing page for Al Umayyad",
+  title: "مستشفى الأموي",
+  description: "مشفى الأموي الخاص في مدينة بزاعة شرق محافظة حلب",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
