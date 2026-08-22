@@ -11,12 +11,7 @@ const features = [
   "تقنيات حديثة في التشخيص والعلاج",
 ];
 
-const stats = [
-  { value: "95%+", label: "رضا المرضى" },
-  { value: "120+", label: "طبيب استشاري" },
-  { value: "15+", label: "قسم طبي مختص" },
-  { value: "50K+", label: "مريض سنوياً" },
-];
+
 
 export default function About() {
   return (
@@ -56,14 +51,7 @@ export default function About() {
             ))}
           </div>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {stats.map((stat) => (
-              <div key={stat.label} className="rounded-xl border border-[#dfe9ee] bg-white p-4 shadow-[0_6px_18px_rgba(28,43,58,0.04)]">
-                <div className="text-2xl font-black text-primary">{stat.value}</div>
-                <div className="mt-1 text-sm text-[#5b6b76]">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+
 
           <div className="mt-8">
             <a
