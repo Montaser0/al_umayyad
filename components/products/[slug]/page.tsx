@@ -9,7 +9,7 @@ export default function ServiceDetails({ service }: { service: Service }) {
       <section className="relative flex min-h-[380px] items-center justify-center overflow-hidden md:min-h-[440px]">
         <Image
           src={service.image}
-          alt={service.title}
+          alt={`${service.title} في مستشفى الأموي`}
           fill
           priority
           className="object-cover"
@@ -54,7 +54,7 @@ export default function ServiceDetails({ service }: { service: Service }) {
               <div className="relative h-44">
                 <Image
                   src={section.image}
-                  alt={section.title}
+                  alt={`${section.title} ضمن ${service.title}`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover"

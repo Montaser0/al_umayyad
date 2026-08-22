@@ -73,7 +73,7 @@ export default function Navbar() {
           >
             <Image
               src="/logo.PNG"
-              alt="شعار الشركة"
+              alt="شعار مستشفى الأموي"
               width={180}
               height={180}
               priority

@@ -49,7 +49,7 @@ export default function Products() {
                   <div className="relative h-44 overflow-hidden">
                     <Image
                       src={service.image}
-                      alt={service.title}
+                      alt={`${service.title} في مستشفى الأموي`}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
