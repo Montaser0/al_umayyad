@@ -18,15 +18,45 @@ export type ServiceIcon =
   | "pharmacy"
   | "cosmetics";
 
+export type ServiceCategoryId = "critical" | "diagnostics" | "clinics" | "care";
+
 export type Service = {
   slug: string;
   title: string;
   description: string;
   image: string;
   icon: ServiceIcon;
+  category: ServiceCategoryId;
   comingSoon?: boolean;
   sections: ServiceSection[];
 };
+
+export const serviceCategories: {
+  id: ServiceCategoryId;
+  title: string;
+  description: string;
+}[] = [
+  {
+    id: "critical",
+    title: "طوارئ وعناية",
+    description: "الإسعاف والعناية المشددة والحواضن",
+  },
+  {
+    id: "diagnostics",
+    title: "التشخيص",
+    description: "الأشعة والمخبر والقثطرة القلبية",
+  },
+  {
+    id: "clinics",
+    title: "العيادات والتوليد",
+    description: "العيادات التخصصية وقسم التوليد",
+  },
+  {
+    id: "care",
+    title: "عمليات وإقامة",
+    description: "العمليات والإقامة والصيدلية والتجميل",
+  },
+];
 
 const hospital = "/hospital.PNG";
 const radiologyImg = "/رنين.png";
@@ -41,6 +71,7 @@ export const services: Service[] = [
       "استقبال الحالات الإسعافية على مدار الساعة مع مسارات منفصلة للرجال والنساء والأطفال.",
     image: hospital,
     icon: "emergency",
+    category: "critical",
     sections: [
       {
         title: "رجال",
@@ -65,6 +96,7 @@ export const services: Service[] = [
     description: "تصوير تشخيصي رقمي يدعم القرار الطبي بنتائج واضحة وسريعة.",
     image: radiologyImg,
     icon: "scan",
+    category: "diagnostics",
     sections: [
       {
         title: "أشعة بسيطة",
@@ -89,6 +121,7 @@ export const services: Service[] = [
     description: "تحاليل مخبرية موثوقة تغطي الفحوصات الدموية والكيميائية والهرمونية.",
     image: hospital,
     icon: "lab",
+    category: "diagnostics",
     sections: [
       {
         title: "دموي",
@@ -114,6 +147,7 @@ export const services: Service[] = [
       "رعاية متكاملة للحمل والولادة والجراحة النسائية من الإسعاف حتى العيادة.",
     image: hospital,
     icon: "obstetrics",
+    category: "clinics",
     sections: [
       {
         title: "إسعاف",
@@ -154,6 +188,7 @@ export const services: Service[] = [
       "عيادات تخصصية تغطي الباطنة والجراحة وطب الأطفال والجلدية وبقية الفروع الطبية.",
     image: eyeImg,
     icon: "clinics",
+    category: "clinics",
     sections: [
       {
         title: "أطفال",
@@ -283,6 +318,7 @@ export const services: Service[] = [
     description: "غرف عمليات مجهّزة للجراحة العامة والإجراءات التنظيرية بمعايير سلامة عالية.",
     image: hospital,
     icon: "surgery",
+    category: "care",
     sections: [
       {
         title: "جراحة عامة",
@@ -302,6 +338,7 @@ export const services: Service[] = [
     description: "أجنحة إقامة مريحة ومنفصلة للرجال والنساء والأطفال خلال فترة الاستشفاء.",
     image: hospital,
     icon: "inpatient",
+    category: "care",
     sections: [
       {
         title: "رجال",
@@ -326,6 +363,7 @@ export const services: Service[] = [
     description: "رعاية حديثي الولادة في حواضن مجهّزة لمتابعة الخدّج والحالات التي تحتاج مراقبة دقيقة.",
     image: hospital,
     icon: "child",
+    category: "critical",
     sections: [],
   },
   {
@@ -334,6 +372,7 @@ export const services: Service[] = [
     description: "عناية مشددة متخصصة للحالات القلبية والداخلية والجراحية والأطفال.",
     image: cathImg,
     icon: "icu",
+    category: "critical",
     sections: [
       {
         title: "قلبية",
@@ -363,6 +402,7 @@ export const services: Service[] = [
     description: "قثطرة قلبية للتشخيص وتوسيع الشرايين وتركيب الشبكات بإشراف فريق متخصص.",
     image: cathImg,
     icon: "heart",
+    category: "diagnostics",
     sections: [
       {
         title: "تشخيص",
@@ -387,6 +427,7 @@ export const services: Service[] = [
     description: "صرف الأدوية للمرضى الداخليين والمراجعين وفق الوصفات الطبية المعتمدة في المشفى.",
     image: hospital,
     icon: "pharmacy",
+    category: "care",
     sections: [],
   },
   {
@@ -395,6 +436,7 @@ export const services: Service[] = [
     description: "خدمات التجميل الطبي ستكون متاحة قريباً ضمن مستشفى الأموي.",
     image: eyeImg,
     icon: "cosmetics",
+    category: "care",
     comingSoon: true,
     sections: [],
   },

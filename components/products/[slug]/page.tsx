@@ -54,25 +54,14 @@ export default function ServiceDetails({ service }: { service: Service }) {
               <span className="mx-auto mt-4 block h-[3px] w-20 rounded-full bg-primary"></span>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-3 sm:grid-cols-2">
               {service.sections.map((section) => (
                 <article
                   key={section.title}
-                  className="overflow-hidden rounded-2xl border border-primary/10 bg-background shadow-[0_10px_30px_rgba(28,43,58,0.06)]"
+                  className="rounded-2xl border border-primary/10 bg-background px-5 py-4 shadow-[0_8px_20px_rgba(28,43,58,0.04)]"
                 >
-                  <div className="relative h-44">
-                    <Image
-                      src={section.image}
-                      alt={`${section.title} ضمن ${service.title}`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-bold text-foreground">{section.title}</h3>
-                    <p className="mt-2 text-sm leading-7 text-foreground/55">{section.description}</p>
-                  </div>
+                  <h3 className="text-base font-bold text-foreground">{section.title}</h3>
+                  <p className="mt-1 text-sm leading-7 text-foreground/55">{section.description}</p>
                 </article>
               ))}
             </div>
