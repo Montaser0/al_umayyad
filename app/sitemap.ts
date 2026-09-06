@@ -12,11 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
-    ...services.map((service) => ({
-      url: `${siteUrl}/products/${service.slug}`,
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
+    ...services
+      .filter((service) => !service.comingSoon)
+      .map((service) => ({
+        url: `${siteUrl}/products/${service.slug}`,
+        lastModified,
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+      })),
   ];
 }

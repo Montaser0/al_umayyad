@@ -78,7 +78,6 @@ export default function Hero() {
               <p className="mt-2 text-sm font-medium text-foreground/55">طبيب واستشاري</p>
             </div>
           </div>
-
           <div className="flex items-center gap-4 px-6 py-6 md:px-8">
             <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <LocalHospital sx={{ fontSize: 27 }} />

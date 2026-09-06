@@ -56,12 +56,14 @@ export function hospitalJsonLd() {
     },
     hasMap: siteMapsUrl,
     medicalSpecialty: medicalSpecialties,
-    availableService: services.map((service) => ({
-      "@type": "MedicalProcedure",
-      name: service.title,
-      description: service.description,
-      url: `${siteUrl}/products/${service.slug}`,
-    })),
+    availableService: services
+      .filter((service) => !service.comingSoon)
+      .map((service) => ({
+        "@type": "MedicalProcedure",
+        name: service.title,
+        description: service.description,
+        url: `${siteUrl}/products/${service.slug}`,
+      })),
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: [

@@ -4,226 +4,399 @@ export type ServiceSection = {
   image: string;
 };
 
+export type ServiceIcon =
+  | "emergency"
+  | "scan"
+  | "lab"
+  | "obstetrics"
+  | "clinics"
+  | "surgery"
+  | "inpatient"
+  | "child"
+  | "icu"
+  | "heart"
+  | "pharmacy"
+  | "cosmetics";
+
 export type Service = {
   slug: string;
   title: string;
   description: string;
   image: string;
-  icon: "science" | "heart" | "eye" | "scan" | "emergency" | "surgery" | "lab" | "child";
+  icon: ServiceIcon;
+  comingSoon?: boolean;
   sections: ServiceSection[];
 };
 
+const hospital = "/hospital.PNG";
+const radiologyImg = "/رنين.png";
+const cathImg = "/قثطرة.png";
+const eyeImg = "/عيون.png";
+
 export const services: Service[] = [
   {
-    slug: "mri",
-    title: "الرنين المغناطيسي",
+    slug: "emergency",
+    title: "قسم الإسعاف",
     description:
-      "تصوير دقيق للأعضاء والأنسجة بأجهزة رنين حديثة تساعد على التشخيص المبكر ووضع خطة علاج واضحة.",
-    image: "/رنين.png",
-    icon: "science",
+      "استقبال الحالات الإسعافية على مدار الساعة مع مسارات منفصلة للرجال والنساء والأطفال.",
+    image: hospital,
+    icon: "emergency",
     sections: [
       {
-        title: "رنين الدماغ",
-        description: "تصوير الدماغ والأعصاب لتشخيص الأورام والسكتات والاضطرابات العصبية.",
-        image: "/hospital.PNG",
+        title: "رجال",
+        description: "رعاية إسعافية للرجال مع فرز سريع وتدخل فوري للحالات الحرجة.",
+        image: hospital,
       },
       {
-        title: "رنين العمود الفقري",
-        description: "تقييم الفقرات والأقراص والأعصاب بدقة عالية.",
-        image: "/hero.jpg",
+        title: "نساء",
+        description: "مسار إسعافي مخصص للنساء يضمن الخصوصية والرعاية العاجلة.",
+        image: radiologyImg,
       },
       {
-        title: "رنين المفاصل",
-        description: "فحص الركبة والكتف والورك لتحديد الإصابات والالتهابات.",
-        image: "/hospital.PNG",
-      },
-      {
-        title: "رنين البطن والحوض",
-        description: "تصوير الأعضاء الداخلية لدعم التشخيص الجراحي والباطني.",
-        image: "/hero.jpg",
-      },
-    ],
-  },
-  {
-    slug: "catheterization",
-    title: "القثطرة القلبية",
-    description:
-      "تشخيص وعلاج أمراض القلب والشرايين عبر قثطرة متقدمة بإشراف كادر استشاري متخصص.",
-    image: "/قثطرة.png",
-    icon: "heart",
-    sections: [
-      {
-        title: "قثطرة تشخيصية",
-        description: "تصوير الشرايين التاجية لتحديد موضع الانسداد أو التضيق.",
-        image: "/hero.jpg",
-      },
-      {
-        title: "قثطرة علاجية",
-        description: "توسيع الشرايين وتركيب الدعامات عند الحاجة.",
-        image: "/hospital.PNG",
-      },
-      {
-        title: "قثطرة الشرايين التاجية",
-        description: "إجراء متخصص لعلاج أمراض القلب الإقفارية.",
-        image: "/hero.jpg",
-      },
-      {
-        title: "متابعة ما بعد القثطرة",
-        description: "برنامج متابعة طبية لضمان استقرار الحالة والوقاية من المضاعفات.",
-        image: "/hospital.PNG",
-      },
-    ],
-  },
-  {
-    slug: "ophthalmology",
-    title: "طب العيون",
-    description:
-      "فحص وعلاج أمراض العين والرؤية، مع إمكانيات جراحية وتشخيصية حديثة للحفاظ على سلامة البصر.",
-    image: "/عيون.png",
-    icon: "eye",
-    sections: [
-      {
-        title: "فحص النظر",
-        description: "تقييم شامل للرؤية وضغط العين وشبكية العين.",
-        image: "/hospital.PNG",
-      },
-      {
-        title: "جراحة الساد",
-        description: "إزالة المياه البيضاء بعدسات حديثة واستعادة وضوح الرؤية.",
-        image: "/hero.jpg",
-      },
-      {
-        title: "علاج الشبكية",
-        description: "متابعة اعتلال الشبكية وعلاجات الليزر عند الحاجة.",
-        image: "/hospital.PNG",
-      },
-      {
-        title: "تصحيح البصر",
-        description: "خيارات علاجية لتحسين حدة الإبصار وفق حالة المريض.",
-        image: "/hero.jpg",
+        title: "أطفال",
+        description: "إسعاف الأطفال بحضور كادر مدرّب على الحالات الحادة لدى الصغار.",
+        image: hospital,
       },
     ],
   },
   {
     slug: "radiology",
-    title: "الأشعة التشخيصية",
-    description: "خدمات أشعة رقمية وتصوير مقطعي توفّر نتائج سريعة ودقيقة لدعم القرار الطبي.",
-    image: "/hero.jpg",
+    title: "قسم الأشعة",
+    description: "تصوير تشخيصي رقمي يدعم القرار الطبي بنتائج واضحة وسريعة.",
+    image: radiologyImg,
     icon: "scan",
     sections: [
       {
-        title: "الأشعة السينية",
-        description: "تصوير العظام والصدر بسرعة ودقة رقمية.",
-        image: "/hero.jpg",
+        title: "أشعة بسيطة",
+        description: "تصوير شعاعي رقمي للعظام والصدر والحالات اليومية.",
+        image: radiologyImg,
       },
       {
-        title: "التصوير المقطعي",
-        description: "مقاطع ثلاثية الأبعاد للأعضاء لتقييم الحالات المعقدة.",
-        image: "/hospital.PNG",
+        title: "بانوراما",
+        description: "تصوير بانورامي للفكين والأسنان لدعم التشخيص السني والجراحي.",
+        image: hospital,
       },
       {
-        title: "الأمواج فوق الصوتية",
-        description: "فحص الأنسجة الرخوة والبطن والحوامل بدون إشعاع.",
-        image: "/hero.jpg",
-      },
-    ],
-  },
-  {
-    slug: "emergency",
-    title: "الطوارئ والإسعاف",
-    description: "قسم طوارئ يعمل على مدار الساعة لاستقبال الحالات الحرجة وتقديم الإسعاف الأولي فوراً.",
-    image: "/hospital.PNG",
-    icon: "emergency",
-    sections: [
-      {
-        title: "الاستقبال الإسعافي",
-        description: "فرز الحالات وتقديم التدخل الأولي خلال دقائق.",
-        image: "/hospital.PNG",
-      },
-      {
-        title: "الإنعاش",
-        description: "وحدة جاهزة للتعامل مع توقف القلب والتنفس.",
-        image: "/hero.jpg",
-      },
-      {
-        title: "إصابات الحوادث",
-        description: "رعاية متخصصة للكسور والإصابات المتعددة.",
-        image: "/hospital.PNG",
-      },
-    ],
-  },
-  {
-    slug: "surgery",
-    title: "الجراحة العامة",
-    description:
-      "عمليات جراحية بمعايير سلامة عالية وغرف عمليات مجهّزة وتقنيات حديثة تقلل فترة التعافي.",
-    image: "/hero.jpg",
-    icon: "surgery",
-    sections: [
-      {
-        title: "جراحة البطن",
-        description: "إجراءات جراحية للزائدة والمرارة والفتق بأمان عالٍ.",
-        image: "/hero.jpg",
-      },
-      {
-        title: "الجراحة التنظيرية",
-        description: "عمليات بأقل تدخل جراحي لتعافٍ أسرع.",
-        image: "/hospital.PNG",
-      },
-      {
-        title: "جراحة اليوم الواحد",
-        description: "إجراءات مختارة دون الحاجة إلى تنويم طويل.",
-        image: "/hero.jpg",
+        title: "طبقي محوري",
+        description: "تصوير مقطعي محوري دقيق لتقييم الحالات المعقدة والأعضاء الداخلية.",
+        image: radiologyImg,
       },
     ],
   },
   {
     slug: "lab",
-    title: "المختبر والتحاليل",
-    description: "تحاليل مخبرية شاملة بنتائج موثوقة لدعم التشخيص والمتابعة الطبية اليومية.",
-    image: "/hospital.PNG",
+    title: "قسم المخبر",
+    description: "تحاليل مخبرية موثوقة تغطي الفحوصات الدموية والكيميائية والهرمونية.",
+    image: hospital,
     icon: "lab",
     sections: [
       {
-        title: "تحاليل الدم",
-        description: "فحوصات الدم الشاملة والكيمياء الحيوية.",
-        image: "/hospital.PNG",
+        title: "دموي",
+        description: "فحوصات الدم الشاملة وتعداد الكريات ومتابعة اضطرابات الدم.",
+        image: hospital,
       },
       {
-        title: "الهرمونات",
+        title: "كيميائي",
+        description: "تحاليل كيميائية حيوية للكبد والكلى والسكر والشحوم.",
+        image: radiologyImg,
+      },
+      {
+        title: "هرموني",
         description: "قياس الهرمونات لدعم تشخيص الغدد والاستقلاب.",
-        image: "/hero.jpg",
-      },
-      {
-        title: "الأحياء الدقيقة",
-        description: "زرع الجراثيم وتحديد الحساسية للمضادات.",
-        image: "/hospital.PNG",
+        image: hospital,
       },
     ],
   },
   {
-    slug: "pediatrics",
-    title: "طب الأطفال",
-    description: "رعاية متخصصة للرضع والأطفال، من الفحص الدوري إلى علاج الحالات الحادة والمزمنة.",
-    image: "/hero.jpg",
-    icon: "child",
+    slug: "obstetrics",
+    title: "قسم التوليد",
+    description:
+      "رعاية متكاملة للحمل والولادة والجراحة النسائية من الإسعاف حتى العيادة.",
+    image: hospital,
+    icon: "obstetrics",
     sections: [
       {
-        title: "عيادة الأطفال العامة",
-        description: "متابعة النمو والتطعيمات والأمراض الشائعة.",
-        image: "/hero.jpg",
+        title: "إسعاف",
+        description: "استقبال الحالات النسائية والتوليدية العاجلة على مدار الساعة.",
+        image: hospital,
       },
       {
-        title: "حديثو الولادة",
-        description: "رعاية الرضع بعد الولادة ومتابعة صحتهم المبكرة.",
-        image: "/hospital.PNG",
+        title: "مراقبة",
+        description: "مراقبة الحوامل والجنين قبل الولادة وفي أثناء المخاض.",
+        image: radiologyImg,
       },
       {
-        title: "طوارئ الأطفال",
-        description: "استقبال الحالات الحادة لدى الأطفال على مدار الساعة.",
-        image: "/hero.jpg",
+        title: "ولادة طبيعية",
+        description: "ولادة طبيعية بإشراف طبي وتمريض متخصص مع دعم الأم والوليد.",
+        image: hospital,
+      },
+      {
+        title: "قيصرية",
+        description: "عمليات قيصرية وفق معايير السلامة مع تجهيز غرف العمليات.",
+        image: cathImg,
+      },
+      {
+        title: "عمليات نسائية",
+        description: "إجراءات جراحية نسائية علاجية وتشخيصية حسب الحالة.",
+        image: hospital,
+      },
+      {
+        title: "عيادة الأمراض النسائية",
+        description: "كشف ومتابعة الأمراض النسائية وصحة المرأة خارج حالات الولادة.",
+        image: eyeImg,
       },
     ],
+  },
+  {
+    slug: "clinics",
+    title: "قسم العيادات",
+    description:
+      "عيادات تخصصية تغطي الباطنة والجراحة وطب الأطفال والجلدية وبقية الفروع الطبية.",
+    image: eyeImg,
+    icon: "clinics",
+    sections: [
+      {
+        title: "أطفال",
+        description: "عيادة طب الأطفال لمتابعة النمو والأمراض الشائعة واللقاحات.",
+        image: hospital,
+      },
+      {
+        title: "داخلية عامة",
+        description: "تقييم وعلاج الأمراض الباطنية العامة والمتابعة المزمنة.",
+        image: radiologyImg,
+      },
+      {
+        title: "داخلية غدد صم",
+        description: "تشخيص ومتابعة أمراض الغدد والسكري واضطرابات الهرمونات.",
+        image: hospital,
+      },
+      {
+        title: "داخلية أورام",
+        description: "متابعة الأورام الباطنية والتنسيق مع الفريق العلاجي.",
+        image: cathImg,
+      },
+      {
+        title: "داخلية أمراض دم",
+        description: "رعاية أمراض الدم وفقر الدم واضطرابات التخثر.",
+        image: hospital,
+      },
+      {
+        title: "داخلية أمراض مناعة ورثوية ومفاصل",
+        description: "علاج أمراض المناعة والرثوية والمفاصل والالتهابات المزمنة.",
+        image: eyeImg,
+      },
+      {
+        title: "داخلية قلبية",
+        description: "كشف أمراض القلب والضغط واضطرابات النظم والمتابعة القلبية.",
+        image: cathImg,
+      },
+      {
+        title: "داخلية عصبية",
+        description: "تقييم الصداع والسكتات والصرع وأمراض الأعصاب.",
+        image: radiologyImg,
+      },
+      {
+        title: "داخلية صدرية",
+        description: "علاج أمراض الرئة والربو والالتهابات الصدرية.",
+        image: hospital,
+      },
+      {
+        title: "داخلية كلية",
+        description: "متابعة وظائف الكلى وارتفاع الضغط والأمراض الكلوية.",
+        image: radiologyImg,
+      },
+      {
+        title: "داخلية هضمية",
+        description: "تشخيص أمراض المعدة والكبد والأمعاء والجهاز الهضمي.",
+        image: hospital,
+      },
+      {
+        title: "جلدية",
+        description: "علاج أمراض الجلد والحساسية والإصابات الجلدية.",
+        image: eyeImg,
+      },
+      {
+        title: "جراحة عامة",
+        description: "كشف جراحي عام وتحضير العمليات ومتابعة ما بعد الجراحة.",
+        image: hospital,
+      },
+      {
+        title: "جراحة أطفال",
+        description: "تقييم الحالات الجراحية لدى الأطفال وتخطيط العلاج المناسب.",
+        image: radiologyImg,
+      },
+      {
+        title: "جراحة عينية",
+        description: "عيادة جراحة العيون لفحص البصر والحالات التي تحتاج تدخلاً جراحياً.",
+        image: eyeImg,
+      },
+      {
+        title: "جراحة أذنية",
+        description: "علاج أمراض الأذن والأنف والحنجرة والحالات الجراحية المرتبطة بها.",
+        image: hospital,
+      },
+      {
+        title: "جراحة بولية",
+        description: "كشف أمراض الجهاز البولي والحصيات والمسالك البولية.",
+        image: radiologyImg,
+      },
+      {
+        title: "جراحة أورام",
+        description: "تقييم الأورام الجراحية ووضع خطة الاستئصال أو المتابعة.",
+        image: cathImg,
+      },
+      {
+        title: "جراحة عصبية",
+        description: "عيادة جراحة الدماغ والأعصاب والعمود الفقري.",
+        image: hospital,
+      },
+      {
+        title: "جراحة تجميلية",
+        description: "استشارات الجراحة التجميلية والترميمية حسب الحالة.",
+        image: eyeImg,
+      },
+      {
+        title: "جراحة قلبية",
+        description: "تقييم الحالات القلبية التي قد تحتاج تدخلاً جراحياً.",
+        image: cathImg,
+      },
+      {
+        title: "جراحة عظمية",
+        description: "علاج الكسور والمفاصل والإصابات العظمية.",
+        image: hospital,
+      },
+      {
+        title: "جراحة وعائية",
+        description: "كشف أمراض الشرايين والأوردة والدوالي.",
+        image: radiologyImg,
+      },
+      {
+        title: "جراحة فكية وسنية (رجال ونساء)",
+        description: "جراحة الفكين والأسنان بمسارين للرجال والنساء.",
+        image: eyeImg,
+      },
+    ],
+  },
+  {
+    slug: "surgery",
+    title: "قسم العمليات الجراحية",
+    description: "غرف عمليات مجهّزة للجراحة العامة والإجراءات التنظيرية بمعايير سلامة عالية.",
+    image: hospital,
+    icon: "surgery",
+    sections: [
+      {
+        title: "جراحة عامة",
+        description: "عمليات الجراحة العامة بإشراف كادر متخصص وتجهيز كامل لغرف العمليات.",
+        image: hospital,
+      },
+      {
+        title: "العمليات التنظيرية",
+        description: "جراحة تنظيرية بأقل تدخل ممكن لتعافٍ أسرع وإقامة أقصر.",
+        image: radiologyImg,
+      },
+    ],
+  },
+  {
+    slug: "inpatient",
+    title: "جناح الإقامة والاستشفاء",
+    description: "أجنحة إقامة مريحة ومنفصلة للرجال والنساء والأطفال خلال فترة الاستشفاء.",
+    image: hospital,
+    icon: "inpatient",
+    sections: [
+      {
+        title: "رجال",
+        description: "غرف إقامة للرجال مع متابعة تمريضية وطبية مستمرة.",
+        image: hospital,
+      },
+      {
+        title: "نساء",
+        description: "جناح إقامة للنساء يراعي الخصوصية وراحة المريضة.",
+        image: radiologyImg,
+      },
+      {
+        title: "أطفال",
+        description: "إقامة مهيأة للأطفال مع مراقبة لصيقة ودعم الأهل.",
+        image: hospital,
+      },
+    ],
+  },
+  {
+    slug: "nicu",
+    title: "قسم الحواضن",
+    description: "رعاية حديثي الولادة في حواضن مجهّزة لمتابعة الخدّج والحالات التي تحتاج مراقبة دقيقة.",
+    image: hospital,
+    icon: "child",
+    sections: [],
+  },
+  {
+    slug: "icu",
+    title: "وحدة العناية المشددة",
+    description: "عناية مشددة متخصصة للحالات القلبية والداخلية والجراحية والأطفال.",
+    image: cathImg,
+    icon: "icu",
+    sections: [
+      {
+        title: "قلبية",
+        description: "عناية مشددة لمرضى القلب واضطرابات النظم والحالات الإقفارية.",
+        image: cathImg,
+      },
+      {
+        title: "داخلية",
+        description: "مراقبة مكثفة للحالات الباطنية الحرجة والفشل العضوي.",
+        image: hospital,
+      },
+      {
+        title: "جراحية",
+        description: "عناية بعد العمليات الكبرى وللحالات الجراحية غير المستقرة.",
+        image: radiologyImg,
+      },
+      {
+        title: "أطفال",
+        description: "عناية مشددة للأطفال والرضع الذين يحتاجون دعماً تنفسياً أو دوائياً دقيقاً.",
+        image: hospital,
+      },
+    ],
+  },
+  {
+    slug: "catheterization",
+    title: "وحدة القثطرة القلبية",
+    description: "قثطرة قلبية للتشخيص وتوسيع الشرايين وتركيب الشبكات بإشراف فريق متخصص.",
+    image: cathImg,
+    icon: "heart",
+    sections: [
+      {
+        title: "تشخيص",
+        description: "قثطرة تشخيصية لتصوير الشرايين التاجية وتحديد موضع التضيق.",
+        image: cathImg,
+      },
+      {
+        title: "توسيع",
+        description: "توسيع الشرايين المتضيقة عبر القثطرة العلاجية.",
+        image: hospital,
+      },
+      {
+        title: "شبكات",
+        description: "تركيب الشبكات القلبية عند الحاجة لاستعادة تدفق الدم.",
+        image: cathImg,
+      },
+    ],
+  },
+  {
+    slug: "pharmacy",
+    title: "قسم الصيدلية",
+    description: "صرف الأدوية للمرضى الداخليين والمراجعين وفق الوصفات الطبية المعتمدة في المشفى.",
+    image: hospital,
+    icon: "pharmacy",
+    sections: [],
+  },
+  {
+    slug: "cosmetics",
+    title: "قسم التجميل",
+    description: "خدمات التجميل الطبي ستكون متاحة قريباً ضمن مستشفى الأموي.",
+    image: eyeImg,
+    icon: "cosmetics",
+    comingSoon: true,
+    sections: [],
   },
 ];
 
