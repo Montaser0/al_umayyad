@@ -8,9 +8,12 @@ import {
   siteDescription,
   siteEmail,
   siteEnglishName,
+  siteFacebookUrl,
   siteGeo,
+  siteInstagramUrl,
   siteMapsUrl,
   siteName,
+  sitePhoneE164,
   siteUrl,
 } from "./site";
 
@@ -73,6 +76,8 @@ export function hospitalJsonLd() {
         image: [`${siteUrl}${ogImage.url}`, `${siteUrl}${logoPath}`],
         description: siteDescription,
         email: siteEmail,
+        telephone: sitePhoneE164,
+        sameAs: [siteFacebookUrl, siteInstagramUrl],
         address: {
           "@type": "PostalAddress",
           streetAddress: siteAddress.streetAddress,

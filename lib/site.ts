@@ -30,12 +30,14 @@ export const siteKeywords = [
   "ريف حلب الشرقي",
 ];
 
-/** Contact email already used on the site (not the website domain). */
-export const siteEmail = "info@alumayyad-hospital.com";
+export const siteEmail = "alumayyadhospital@gmail.com";
 
-/** Placeholder contact numbers — keep UI as-is; omit from schema until real. */
-export const sitePhoneDisplay = "+963 9XX XXX XXX";
-export const sitePhoneE164 = "+9639XXXXXXXXX";
+export const sitePhoneDisplay = "+963 985 001 003";
+export const sitePhoneE164 = "+963985001003";
+export const siteWhatsAppUrl = `https://wa.me/${sitePhoneE164.replace("+", "")}`;
+
+export const siteFacebookUrl = "https://www.facebook.com/share/1EP1quByW9/";
+export const siteInstagramUrl = "https://www.instagram.com/aum_sy_26/";
 
 export const siteAddress = {
   streetAddress: "مدينة بزاعة – طريق حلب–منبج الدولي",

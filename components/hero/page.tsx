@@ -5,6 +5,7 @@ import LocalHospital from "@mui/icons-material/LocalHospital";
 import MedicalServices from "@mui/icons-material/MedicalServices";
 import West from "@mui/icons-material/West";
 import AmbulanceIcon from "../icons/AmbulanceIcon";
+import { siteWhatsAppUrl } from "../../lib/site";
 
 export default function Hero() {
   return (
@@ -46,7 +47,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="https://wa.me/9639XXXXXXXXX"
+              href={siteWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-md border border-secondary bg-background/95 px-5 py-4 text-sm font-bold text-secondary hover:bg-background"

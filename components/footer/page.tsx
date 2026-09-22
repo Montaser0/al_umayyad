@@ -5,12 +5,20 @@ import Email from "@mui/icons-material/Email";
 import LocationOn from "@mui/icons-material/LocationOn";
 import Phone from "@mui/icons-material/Phone";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "../icons/social";
-import { siteAddressText, siteEmail, sitePhoneDisplay, sitePhoneE164 } from "../../lib/site";
+import {
+  siteAddressText,
+  siteEmail,
+  siteFacebookUrl,
+  siteInstagramUrl,
+  sitePhoneDisplay,
+  sitePhoneE164,
+  siteWhatsAppUrl,
+} from "../../lib/site";
 
 const socialLinks = [
-  { name: "فيسبوك", href: "#", icon: FacebookIcon },
-  { name: "إنستغرام", href: "#", icon: InstagramIcon },
-  { name: "واتساب", href: `https://wa.me/${sitePhoneE164.replace("+", "")}`, icon: WhatsAppIcon },
+  { name: "فيسبوك", href: siteFacebookUrl, icon: FacebookIcon },
+  { name: "إنستغرام", href: siteInstagramUrl, icon: InstagramIcon },
+  { name: "واتساب", href: siteWhatsAppUrl, icon: WhatsAppIcon },
 ];
 
 export default function Footer() {
