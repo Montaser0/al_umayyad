@@ -19,7 +19,7 @@ export default function Footer() {
         <div className="flex flex-col items-center text-center">
           <Image
             src="/logo2.PNG"
-            alt="مستشفى الأموي"
+            alt="شعار مستشفى الأموي"
             width={280}
             height={280}
             className="h-52 w-52 object-contain md:h-64 md:w-64"
@@ -75,7 +75,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-background/15 pt-6 text-center text-sm text-background/55">
-          © {new Date().getFullYear()} مشفى الأموي. جميع الحقوق محفوظة
+          © {new Date().getFullYear()} مستشفى الأموي. جميع الحقوق محفوظة
         </div>
       </div>
     </footer>

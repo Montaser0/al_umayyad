@@ -26,13 +26,16 @@ export async function generateMetadata({
     };
   }
 
-  const title = service.title;
-  const description = `${service.description} خدمة ${service.title} في ${siteName} بمدينة بزاعة شرق محافظة حلب.`;
+  const title = `${service.title} في مستشفى الأموي`;
+  const description = `${service.description} خدمة ${service.title} في مستشفى الأموي (مشفى الأموي) بمدينة بزاعة شرق محافظة حلب.`;
   const path = `/products/${service.slug}`;
 
   return {
-    title,
+    title: {
+      absolute: `${title} | ${siteName}`,
+    },
     description,
+    keywords: [service.title, siteName, "مشفى الأموي", "مستشفى بزاعة", "مستشفى حلب"],
     alternates: {
       canonical: path,
     },
@@ -41,7 +44,7 @@ export async function generateMetadata({
       locale: "ar_SY",
       url: path,
       siteName,
-      title: `${service.title} | ${siteName}`,
+      title: `${title} | ${siteName}`,
       description,
       images: [
         {
@@ -52,7 +55,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${service.title} | ${siteName}`,
+      title: `${title} | ${siteName}`,
       description,
       images: [service.image],
     },

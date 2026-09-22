@@ -16,11 +16,11 @@ export default function Questions() {
             الأسئلة الشائعة
           </span>
           <h2 className="mt-4 text-3xl font-medium text-foreground/80 md:text-[2.1rem]">
-            إجابات على أكثر الأسئلة تكراراً
+            أسئلة شائعة عن مستشفى الأموي
           </h2>
           <span className="mx-auto mt-4 block h-[4px] w-16 rounded-full bg-primary" />
           <p className="mx-auto mt-4 max-w-xl text-sm leading-8 text-foreground/55 md:text-base">
-            نقدّم لكم معلومات مختصرة تساعدك على فهم خدمات المشفى ومواعيد الرعاية بسهولة.
+            إجابات مختصرة تساعدك على فهم خدمات مشفى الأموي ومواعيد الرعاية بسهولة.
           </p>
         </div>
 

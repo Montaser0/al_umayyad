@@ -7,9 +7,11 @@ import {
   siteAlternateName,
   siteDescription,
   siteEmail,
+  siteEnglishName,
   siteGeo,
   siteMapsUrl,
   siteName,
+  sitePhoneE164,
   siteUrl,
 } from "./site";
 
@@ -35,49 +37,94 @@ const medicalSpecialties = [
   "https://schema.org/Pediatric",
 ];
 
+const hospitalId = `${siteUrl}/#hospital`;
+const websiteId = `${siteUrl}/#website`;
+const logoId = `${siteUrl}/#logo`;
+
 export function hospitalJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "Hospital",
-    name: siteName,
-    alternateName: siteAlternateName,
-    url: siteUrl,
-    logo: `${siteUrl}${logoPath}`,
-    image: `${siteUrl}${ogImage.url}`,
-    description: siteDescription,
-    email: siteEmail,
-    address: {
-      "@type": "PostalAddress",
-      ...siteAddress,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      ...siteGeo,
-    },
-    hasMap: siteMapsUrl,
-    medicalSpecialty: medicalSpecialties,
-    availableService: services
-      .filter((service) => !service.comingSoon)
-      .map((service) => ({
-        "@type": "MedicalProcedure",
-        name: service.title,
-        description: service.description,
-        url: `${siteUrl}/products/${service.slug}`,
-      })),
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ],
-      opens: "00:00",
-      closes: "23:59",
-    },
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: siteUrl,
+        name: siteName,
+        alternateName: [siteAlternateName, siteEnglishName],
+        description: siteDescription,
+        inLanguage: "ar-SY",
+        publisher: { "@id": hospitalId },
+      },
+      {
+        "@type": "Hospital",
+        "@id": hospitalId,
+        name: siteName,
+        alternateName: [siteAlternateName, siteEnglishName, "Umayyad Hospital"],
+        url: siteUrl,
+        logo: {
+          "@type": "ImageObject",
+          "@id": logoId,
+          url: `${siteUrl}${logoPath}`,
+        },
+        image: [`${siteUrl}${ogImage.url}`, `${siteUrl}${logoPath}`],
+        description: siteDescription,
+        email: siteEmail,
+        telephone: sitePhoneE164,
+        address: {
+          "@type": "PostalAddress",
+          ...siteAddress,
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          ...siteGeo,
+        },
+        hasMap: siteMapsUrl,
+        areaServed: [
+          {
+            "@type": "City",
+            name: "بزاعة",
+          },
+          {
+            "@type": "City",
+            name: "الباب",
+          },
+          {
+            "@type": "AdministrativeArea",
+            name: "حلب",
+          },
+        ],
+        medicalSpecialty: medicalSpecialties,
+        availableService: services
+          .filter((service) => !service.comingSoon)
+          .map((service) => ({
+            "@type": "MedicalProcedure",
+            name: service.title,
+            description: service.description,
+            url: `${siteUrl}/products/${service.slug}`,
+          })),
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
+          opens: "00:00",
+          closes: "23:59",
+        },
+        isAcceptingNewPatients: true,
+        knowsLanguage: ["ar", "en"],
+        priceRange: "$$",
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": siteUrl,
+        },
+      },
+    ],
   };
 }
 
@@ -110,6 +157,7 @@ export function serviceJsonLd(slug: string, title: string, description: string, 
       procedureType: title,
       provider: {
         "@type": "Hospital",
+        "@id": hospitalId,
         name: siteName,
         url: siteUrl,
       },
@@ -121,7 +169,7 @@ export function serviceJsonLd(slug: string, title: string, description: string, 
         {
           "@type": "ListItem",
           position: 1,
-          name: "الرئيسية",
+          name: siteName,
           item: siteUrl,
         },
         {

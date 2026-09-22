@@ -3,7 +3,9 @@ import type { ReactNode } from "react";
 import localFont from "next/font/local";
 import { JsonLd, hospitalJsonLd } from "../lib/json-ld";
 import {
+  logoPath,
   ogImage,
+  siteAlternateName,
   siteDescription,
   siteKeywords,
   siteName,
@@ -52,6 +54,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: ogImage.url,
+        width: ogImage.width,
+        height: ogImage.height,
         alt: ogImage.alt,
       },
     ],
@@ -72,6 +76,17 @@ export const metadata: Metadata = {
       "max-snippet": -1,
       "max-video-preview": -1,
     },
+  },
+  icons: {
+    icon: [{ url: logoPath, type: "image/png" }],
+    apple: [{ url: logoPath }],
+  },
+  other: {
+    "geo.region": "SY-HL",
+    "geo.placename": "بزاعة، الباب، حلب",
+    "geo.position": "36.3885263;37.5737988",
+    ICBM: "36.3885263, 37.5737988",
+    "apple-mobile-web-app-title": siteAlternateName,
   },
 };
 

@@ -23,18 +23,17 @@ export default function About() {
           </span>
 
           <h2 className="mt-4 text-3xl font-bold leading-[1.45] text-[#1c2b3a] md:text-[2.35rem]">
-            رؤية طبية متطورة
-            لرعاية أفضل
-
+            مستشفى الأموي: رؤية طبية متطورة لرعاية أفضل
             <span className="mt-1 block">
               <span className="mt-3 block h-[6px] w-28 rounded-full bg-primary" />
             </span>
           </h2>
 
           <p className="mt-5 text-[18px] leading-8 text-[#5b6b76]">
-            تأسس مستشفى الأموي ليكون صرحاً طبياً يواكب أحدث التطورات في التشخيص
-            والعلاج، مع التزام واضح بسلامة المريض وراحته. نقدّم رعاية متكاملة عبر
-            العيادات والطوارئ وأقسام التنويم بكادر متخصص وتجهيزات حديثة.
+            تأسس مستشفى الأموي (مشفى الأموي) في مدينة بزاعة شرق محافظة حلب ليكون
+            صرحاً طبياً يواكب أحدث التطورات في التشخيص والعلاج، مع التزام واضح
+            بسلامة المريض وراحته. نقدّم رعاية متكاملة عبر العيادات والطوارئ
+            وأقسام التنويم بكادر متخصص وتجهيزات حديثة.
           </p>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -67,7 +66,7 @@ export default function About() {
         <div className="w-full overflow-hidden rounded-2xl shadow-[0_12px_40px_rgba(0,120,153,0.28)]">
           <Image
             src="/hospital.PNG"
-            alt="مبنى مستشفى الأموي"
+            alt="مبنى مستشفى الأموي في مدينة بزاعة"
             width={1400}
             height={600}
             className="h-[260px] w-full object-cover sm:h-[300px] lg:h-[400px]"

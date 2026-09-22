@@ -8,13 +8,14 @@ import Questions from "../components/questions/page";
 import HospitalMap from "../components/map/page";
 import Footer from "../components/footer/page";
 import { JsonLd, faqJsonLd } from "../lib/json-ld";
-import { siteDescription, siteTitle } from "../lib/site";
+import { siteDescription, siteKeywords, siteTitle } from "../lib/site";
 
 export const metadata: Metadata = {
   title: {
     absolute: siteTitle,
   },
   description: siteDescription,
+  keywords: siteKeywords,
   alternates: {
     canonical: "/",
   },

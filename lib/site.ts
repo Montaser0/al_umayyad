@@ -4,19 +4,25 @@ export const siteUrl =
 
 export const siteName = "مستشفى الأموي";
 export const siteAlternateName = "مشفى الأموي";
+export const siteEnglishName = "Al Umayyad Hospital";
 
 export const siteTitle =
-  "مستشفى الأموي | مشفى خاص في بزاعة شرق حلب";
+  "مستشفى الأموي | مشفى الأموي الخاص في بزاعة شرق حلب";
 
 export const siteDescription =
-  "مستشفى الأموي الخاص في مدينة بزاعة شرق محافظة حلب: طوارئ على مدار الساعة، رنين مغناطيسي، قثطرة قلبية، أشعة تشخيصية، جراحة، مختبر وطب عيون وأطفال.";
+  "مستشفى الأموي (مشفى الأموي) في مدينة بزاعة شرق محافظة حلب: مستشفى خاص بطوارئ على مدار الساعة، رنين مغناطيسي، قثطرة قلبية، أشعة تشخيصية، جراحة، مختبر وطب عيون وأطفال.";
 
 export const siteKeywords = [
   "مستشفى الأموي",
   "مشفى الأموي",
+  "مستشفى الأموي بزاعة",
+  "مشفى الأموي حلب",
+  "Al Umayyad Hospital",
+  "Umayyad Hospital",
   "مستشفى بزاعة",
   "مستشفى الباب",
   "مستشفى حلب",
+  "مستشفى خاص حلب",
   "رنين مغناطيسي حلب",
   "قثطرة قلبية",
   "طوارئ بزاعة",
@@ -27,12 +33,17 @@ export const siteKeywords = [
 
 export const siteEmail = "info@alumayyad-hospital.com";
 
+export const sitePhoneDisplay = "+963 9XX XXX XXX";
+export const sitePhoneE164 = "+9639XXXXXXXXX";
+
 export const siteAddress = {
   streetAddress: "مدينة بزاعة",
   addressLocality: "الباب",
   addressRegion: "حلب",
   addressCountry: "SY",
 } as const;
+
+export const siteAddressText = "سوريا - حلب - الباب - مدينة بزاعة";
 
 export const siteGeo = {
   latitude: 36.3885263,
@@ -43,7 +54,9 @@ export const siteMapsUrl = "https://maps.app.goo.gl/9tzBSJqcdyvFZkws7";
 
 export const ogImage = {
   url: "/hospital.PNG",
-  alt: "مبنى مستشفى الأموي في مدينة بزاعة",
+  width: 1200,
+  height: 630,
+  alt: "مبنى مستشفى الأموي في مدينة بزاعة شرق حلب",
 } as const;
 
 export const logoPath = "/logo.PNG";

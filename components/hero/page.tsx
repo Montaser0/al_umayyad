@@ -13,7 +13,7 @@ export default function Hero() {
         <div className="absolute inset-0">
           <Image
             src="/hospital.PNG"
-            alt="مبنى مستشفى الأموي"
+            alt="مبنى مستشفى الأموي في مدينة بزاعة شرق حلب"
             fill
             priority
             className="scale-105 object-cover blur-[3px]"
@@ -23,16 +23,16 @@ export default function Hero() {
 
         <div className="relative z-10 mx-auto flex min-h-[640px] max-w-[900px] flex-col items-center justify-center px-5 py-24 text-center md:min-h-[780px] md:py-32">
           <span className="inline-flex items-center rounded-md border border-primary px-4 py-1.5 text-sm font-medium text-background">
-            أفضل رعاية طبية في سوريا
+            مشفى خاص في بزاعة شرق حلب
           </span>
 
           <h1 className="mt-5 text-[2.1rem] font-bold leading-[1.4] text-background md:text-5xl">
-            رعايتكم أمانة، وصحتكم غايتنا
+            مستشفى الأموي
           </h1>
 
           <p className="mt-5 max-w-[560px] text-[17px] leading-8 text-background/85 md:text-[20px]">
-            نلتزم بتقديم رعاية صحية بمعايير عالمية، عبر كادر طبي متخصص وتقنيات
-            حديثة تضمن سلامتكم وراحتكم في كل زيارة.
+            رعايتكم أمانة، وصحتكم غايتنا. نقدّم في مشفى الأموي رعاية صحية متكاملة
+            بطوارئ على مدار الساعة وكادر متخصص وتقنيات تشخيص وعلاج حديثة.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
