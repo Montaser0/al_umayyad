@@ -34,11 +34,12 @@ export default function WhyUs() {
             قيمنا
           </span>
           <h2 className="mt-4 text-3xl font-bold text-background md:text-[2.35rem]">
-            لماذا تختار مشفى الأموي؟
+            لماذا تختار مستشفى الأموي؟
           </h2>
           <span className="mx-auto mt-4 block h-[4px] w-16 rounded-full bg-primary" />
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-8 text-background/70 md:text-base">
-            صرح طبي يجمع الخبرة والتقنية والرعاية الإنسانية ليكون خياركم الأول للصحة في سوريا.
+            صرح طبي في مدينة بزاعة يجمع الخبرة والتقنية والرعاية الإنسانية لخدمة
+            المرضى في ريف حلب الشرقي.
           </p>
         </div>
 

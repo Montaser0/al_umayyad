@@ -37,9 +37,9 @@ export default function Products() {
     <section id="services" dir="rtl" className="w-full bg-background">
       <div className="mx-auto max-w-[1280px] px-5 py-16 md:px-10 lg:px-12 lg:py-24">
         <div className="mb-12 text-center">
-          <p className="text-sm font-semibold text-primary">خدمات مستشفى الأموي</p>
+          <p className="text-sm font-semibold text-primary">خدماتنا الطبية</p>
           <h2 className="mt-2 text-3xl font-bold text-foreground md:text-[2.35rem]">
-            أقسامنا وخدماتنا الطبية
+            أقسام وخدمات مستشفى الأموي
           </h2>
           <span className="mx-auto mt-4 block h-[3px] w-24 rounded-full bg-primary" />
         </div>

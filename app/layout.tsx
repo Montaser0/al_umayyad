@@ -7,6 +7,7 @@ import {
   ogImage,
   siteAlternateName,
   siteDescription,
+  siteEnglishName,
   siteKeywords,
   siteName,
   siteTitle,
@@ -23,6 +24,7 @@ const expoArabic = localFont({
 
 export const viewport: Viewport = {
   themeColor: "#007899",
+  colorScheme: "light",
 };
 
 export const metadata: Metadata = {
@@ -40,15 +42,12 @@ export const metadata: Metadata = {
   category: "healthcare",
   alternates: {
     canonical: "/",
-    languages: {
-      "ar-SY": "/",
-    },
   },
   openGraph: {
     type: "website",
     locale: "ar_SY",
     url: "/",
-    siteName,
+    siteName: `${siteName} | ${siteEnglishName}`,
     title: siteTitle,
     description: siteDescription,
     images: [
@@ -83,7 +82,7 @@ export const metadata: Metadata = {
   },
   other: {
     "geo.region": "SY-HL",
-    "geo.placename": "بزاعة، الباب، حلب",
+    "geo.placename": "بزاعة، ريف حلب الشرقي",
     "geo.position": "36.3885263;37.5737988",
     ICBM: "36.3885263, 37.5737988",
     "apple-mobile-web-app-title": siteAlternateName,

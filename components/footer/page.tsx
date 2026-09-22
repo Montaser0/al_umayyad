@@ -5,11 +5,12 @@ import Email from "@mui/icons-material/Email";
 import LocationOn from "@mui/icons-material/LocationOn";
 import Phone from "@mui/icons-material/Phone";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "../icons/social";
+import { siteAddressText, siteEmail, sitePhoneDisplay, sitePhoneE164 } from "../../lib/site";
 
 const socialLinks = [
   { name: "فيسبوك", href: "#", icon: FacebookIcon },
   { name: "إنستغرام", href: "#", icon: InstagramIcon },
-  { name: "واتساب", href: "https://wa.me/9639XXXXXXXXX", icon: WhatsAppIcon },
+  { name: "واتساب", href: `https://wa.me/${sitePhoneE164.replace("+", "")}`, icon: WhatsAppIcon },
 ];
 
 export default function Footer() {
@@ -24,8 +25,6 @@ export default function Footer() {
             height={280}
             className="h-52 w-52 object-contain md:h-64 md:w-64"
           />
-
-
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-10 text-center md:mt-14 md:grid md:grid-cols-2 md:items-start md:gap-12">
@@ -34,18 +33,18 @@ export default function Footer() {
             <ul className="mt-6 space-y-5 text-sm text-background">
               <li className="flex items-center justify-center gap-2">
                 <LocationOn sx={{ fontSize: 22 }} className="text-primary" />
-                سوريا - حلب - الباب - مدينة بزاعة
+                <span>{siteAddressText}</span>
               </li>
               <li className="flex items-center justify-center gap-2">
                 <Phone sx={{ fontSize: 22 }} className="text-primary" />
-                <a href="tel:+9639XXXXXXXXX" className="hover:text-primary">
-                  +963 9XX XXX XXX
+                <a href={`tel:${sitePhoneE164}`} className="hover:text-primary">
+                  {sitePhoneDisplay}
                 </a>
               </li>
               <li className="flex items-center justify-center gap-2">
                 <Email sx={{ fontSize: 22 }} className="text-primary" />
-                <a href="mailto:info@alumayyad-hospital.com" className="hover:text-primary">
-                  info@alumayyad-hospital.com
+                <a href={`mailto:${siteEmail}`} className="hover:text-primary">
+                  {siteEmail}
                 </a>
               </li>
             </ul>
@@ -75,7 +74,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-background/15 pt-6 text-center text-sm text-background/55">
-          © {new Date().getFullYear()} مستشفى الأموي. جميع الحقوق محفوظة
+          © {new Date().getFullYear()} مستشفى الأموي — Al-Umayyad Hospital. جميع الحقوق محفوظة
         </div>
       </div>
     </footer>

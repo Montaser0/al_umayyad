@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: "/",
+  },
 };
 
 export default function Home() {

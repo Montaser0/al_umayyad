@@ -5,7 +5,7 @@ import Footer from "../../../components/footer/page";
 import ServiceDetails from "../../../components/products/[slug]/page";
 import { getService, services } from "../../../components/products/data";
 import { JsonLd, serviceJsonLd } from "../../../lib/json-ld";
-import { siteName } from "../../../lib/site";
+import { siteEnglishName, siteName } from "../../../lib/site";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -26,25 +26,27 @@ export async function generateMetadata({
     };
   }
 
-  const title = `${service.title} في مستشفى الأموي`;
-  const description = `${service.description} خدمة ${service.title} في مستشفى الأموي (مشفى الأموي) بمدينة بزاعة شرق محافظة حلب.`;
+  const title = `${service.title} | مستشفى الأموي - بزاعة`;
+  const description = `${service.description} ضمن خدمات ${siteName} (${siteEnglishName}) في مدينة بزاعة بريف حلب الشرقي.`;
   const path = `/products/${service.slug}`;
 
   return {
     title: {
-      absolute: `${title} | ${siteName}`,
+      absolute: title,
     },
     description,
-    keywords: [service.title, siteName, "مشفى الأموي", "مستشفى بزاعة", "مستشفى حلب"],
     alternates: {
       canonical: path,
     },
+    robots: service.comingSoon
+      ? { index: false, follow: true }
+      : { index: true, follow: true },
     openGraph: {
       type: "website",
       locale: "ar_SY",
       url: path,
-      siteName,
-      title: `${title} | ${siteName}`,
+      siteName: `${siteName} | ${siteEnglishName}`,
+      title,
       description,
       images: [
         {
@@ -55,7 +57,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | ${siteName}`,
+      title,
       description,
       images: [service.image],
     },

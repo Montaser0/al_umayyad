@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import Check from "@mui/icons-material/Check";
 import Phone from "@mui/icons-material/Phone";
 
@@ -11,7 +12,12 @@ const features = [
   "تقنيات حديثة في التشخيص والعلاج",
 ];
 
-
+const highlights = [
+  { href: "/products/emergency", label: "الطوارئ والإسعاف" },
+  { href: "/products/clinics", label: "العيادات التخصصية" },
+  { href: "/products/radiology", label: "الأشعة والتشخيص" },
+  { href: "/products/lab", label: "المختبر" },
+];
 
 export default function About() {
   return (
@@ -23,17 +29,23 @@ export default function About() {
           </span>
 
           <h2 className="mt-4 text-3xl font-bold leading-[1.45] text-[#1c2b3a] md:text-[2.35rem]">
-            مستشفى الأموي: رؤية طبية متطورة لرعاية أفضل
+            رعاية طبية متكاملة في بزاعة
             <span className="mt-1 block">
               <span className="mt-3 block h-[6px] w-28 rounded-full bg-primary" />
             </span>
           </h2>
 
           <p className="mt-5 text-[18px] leading-8 text-[#5b6b76]">
-            تأسس مستشفى الأموي (مشفى الأموي) في مدينة بزاعة شرق محافظة حلب ليكون
-            صرحاً طبياً يواكب أحدث التطورات في التشخيص والعلاج، مع التزام واضح
-            بسلامة المريض وراحته. نقدّم رعاية متكاملة عبر العيادات والطوارئ
-            وأقسام التنويم بكادر متخصص وتجهيزات حديثة.
+            مستشفى الأموي في مدينة بزاعة، ريف حلب الشرقي، سوريا، هو منشأة صحية خاصة
+            تقدّم رعاية طبية متكاملة لسكان المدينة والمناطق المحيطة في ريف حلب
+            الشرقي. يجمع المشفى بين أقسام الطوارئ والعيادات والجراحة والتنويم
+            وخدمات التشخيص تحت سقف واحد.
+          </p>
+
+          <p className="mt-4 text-[17px] leading-8 text-[#5b6b76]">
+            نقدّم خدمات الإسعاف على مدار الساعة، إضافة إلى الأشعة والمختبر والنسائية
+            والتوليد والعناية المشددة ووحدة القثطرة القلبية والصيدلية، بكادر متخصص
+            وتجهيزات حديثة تخدم احتياجات المرضى اليومية والحالات الحرجة.
           </p>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -50,7 +62,17 @@ export default function About() {
             ))}
           </div>
 
-
+          <nav aria-label="أقسام رئيسية" className="mt-6 flex flex-wrap gap-2">
+            {highlights.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-lg border border-primary/20 bg-white px-3 py-2 text-sm font-semibold text-primary hover:bg-primary/5"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
           <div className="mt-8">
             <a
@@ -66,9 +88,10 @@ export default function About() {
         <div className="w-full overflow-hidden rounded-2xl shadow-[0_12px_40px_rgba(0,120,153,0.28)]">
           <Image
             src="/hospital.PNG"
-            alt="مبنى مستشفى الأموي في مدينة بزاعة"
+            alt="مستشفى الأموي في مدينة بزاعة"
             width={1400}
             height={600}
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="h-[260px] w-full object-cover sm:h-[300px] lg:h-[400px]"
           />
         </div>

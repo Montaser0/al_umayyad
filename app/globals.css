@@ -19,14 +19,8 @@
   --font-sans: var(--font-expo-arabic);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html {
+  color-scheme: light;
   scroll-behavior: smooth;
   scroll-padding-top: 88px;
 }
