@@ -29,9 +29,6 @@ export type Service = {
 };
 
 const hospital = "/hospital.PNG";
-const radiologyImg = "/رنين.png";
-const cathImg = "/قثطرة.png";
-const eyeImg = "/عيون.png";
 
 export const services: Service[] = [
   {
@@ -50,7 +47,7 @@ export const services: Service[] = [
       {
         title: "نساء",
         description: "مسار إسعافي مخصص للنساء يضمن الخصوصية والرعاية العاجلة.",
-        image: radiologyImg,
+        image: hospital,
       },
       {
         title: "أطفال",
@@ -63,13 +60,13 @@ export const services: Service[] = [
     slug: "radiology",
     title: "قسم الأشعة",
     description: "تصوير تشخيصي رقمي يدعم القرار الطبي بنتائج واضحة وسريعة.",
-    image: radiologyImg,
+    image: hospital,
     icon: "scan",
     sections: [
       {
         title: "أشعة بسيطة",
         description: "تصوير شعاعي رقمي للعظام والصدر والحالات اليومية.",
-        image: radiologyImg,
+        image: hospital,
       },
       {
         title: "بانوراما",
@@ -79,7 +76,7 @@ export const services: Service[] = [
       {
         title: "طبقي محوري",
         description: "تصوير مقطعي محوري دقيق لتقييم الحالات المعقدة والأعضاء الداخلية.",
-        image: radiologyImg,
+        image: hospital,
       },
     ],
   },
@@ -98,7 +95,7 @@ export const services: Service[] = [
       {
         title: "كيميائي",
         description: "تحاليل كيميائية حيوية للكبد والكلى والسكر والشحوم.",
-        image: radiologyImg,
+        image: hospital,
       },
       {
         title: "هرموني",
@@ -123,7 +120,7 @@ export const services: Service[] = [
       {
         title: "مراقبة",
         description: "مراقبة الحوامل والجنين قبل الولادة وفي أثناء المخاض.",
-        image: radiologyImg,
+        image: hospital,
       },
       {
         title: "ولادة طبيعية",
@@ -133,7 +130,7 @@ export const services: Service[] = [
       {
         title: "قيصرية",
         description: "عمليات قيصرية وفق معايير السلامة مع تجهيز غرف العمليات.",
-        image: cathImg,
+        image: hospital,
       },
       {
         title: "عمليات نسائية",
@@ -143,7 +140,7 @@ export const services: Service[] = [
       {
         title: "عيادة الأمراض النسائية",
         description: "كشف ومتابعة الأمراض النسائية وصحة المرأة خارج حالات الولادة.",
-        image: eyeImg,
+        image: hospital,
       },
     ],
   },
@@ -152,7 +149,7 @@ export const services: Service[] = [
     title: "قسم العيادات",
     description:
       "عيادات تخصصية تغطي الباطنة والجراحة وطب الأطفال والجلدية وبقية الفروع الطبية.",
-    image: eyeImg,
+    image: hospital,
     icon: "clinics",
     sections: [
       {
@@ -163,7 +160,7 @@ export const services: Service[] = [
       {
         title: "داخلية عامة",
         description: "تقييم وعلاج الأمراض الباطنية العامة والمتابعة المزمنة.",
-        image: radiologyImg,
+        image: hospital,
       },
       {
         title: "داخلية غدد صم",
@@ -173,7 +170,7 @@ export const services: Service[] = [
       {
         title: "داخلية أورام",
         description: "متابعة الأورام الباطنية والتنسيق مع الفريق العلاجي.",
-        image: cathImg,
+        image: hospital,
       },
       {
         title: "داخلية أمراض دم",
@@ -183,17 +180,17 @@ export const services: Service[] = [
       {
         title: "داخلية أمراض مناعة ورثوية ومفاصل",
         description: "علاج أمراض المناعة والرثوية والمفاصل والالتهابات المزمنة.",
-        image: eyeImg,
+        image: hospital,
       },
       {
         title: "داخلية قلبية",
         description: "كشف أمراض القلب والضغط واضطرابات النظم والمتابعة القلبية.",
-        image: cathImg,
+        image: hospital,
       },
       {
         title: "داخلية عصبية",
         description: "تقييم الصداع والسكتات والصرع وأمراض الأعصاب.",
-        image: radiologyImg,
+        image: hospital,
       },
       {
         title: "داخلية صدرية",
@@ -203,7 +200,7 @@ export const services: Service[] = [
       {
         title: "داخلية كلية",
         description: "متابعة وظائف الكلى وارتفاع الضغط والأمراض الكلوية.",
-        image: radiologyImg,
+        image: hospital,
       },
       {
         title: "داخلية هضمية",
@@ -213,7 +210,7 @@ export const services: Service[] = [
       {
         title: "جلدية",
         description: "علاج أمراض الجلد والحساسية والإصابات الجلدية.",
-        image: eyeImg,
+        image: hospital,
       },
       {
         title: "جراحة عامة",
@@ -223,12 +220,12 @@ export const services: Service[] = [
       {
         title: "جراحة أطفال",
         description: "تقييم الحالات الجراحية لدى الأطفال وتخطيط العلاج المناسب.",
-        image: radiologyImg,
+        image: hospital,
       },
       {
         title: "جراحة عينية",
         description: "عيادة جراحة العيون لفحص البصر والحالات التي تحتاج تدخلاً جراحياً.",
-        image: eyeImg,
+        image: hospital,
       },
       {
         title: "جراحة أذنية",
@@ -238,12 +235,12 @@ export const services: Service[] = [
       {
         title: "جراحة بولية",
         description: "كشف أمراض الجهاز البولي والحصيات والمسالك البولية.",
-        image: radiologyImg,
+        image: hospital,
       },
       {
         title: "جراحة أورام",
         description: "تقييم الأورام الجراحية ووضع خطة الاستئصال أو المتابعة.",
-        image: cathImg,
+        image: hospital,
       },
       {
         title: "جراحة عصبية",
@@ -253,12 +250,12 @@ export const services: Service[] = [
       {
         title: "جراحة تجميلية",
         description: "استشارات الجراحة التجميلية والترميمية حسب الحالة.",
-        image: eyeImg,
+        image: hospital,
       },
       {
         title: "جراحة قلبية",
         description: "تقييم الحالات القلبية التي قد تحتاج تدخلاً جراحياً.",
-        image: cathImg,
+        image: hospital,
       },
       {
         title: "جراحة عظمية",
@@ -268,12 +265,12 @@ export const services: Service[] = [
       {
         title: "جراحة وعائية",
         description: "كشف أمراض الشرايين والأوردة والدوالي.",
-        image: radiologyImg,
+        image: hospital,
       },
       {
         title: "جراحة فكية وسنية (رجال ونساء)",
         description: "جراحة الفكين والأسنان بمسارين للرجال والنساء.",
-        image: eyeImg,
+        image: hospital,
       },
     ],
   },
@@ -292,7 +289,7 @@ export const services: Service[] = [
       {
         title: "العمليات التنظيرية",
         description: "جراحة تنظيرية بأقل تدخل ممكن لتعافٍ أسرع وإقامة أقصر.",
-        image: radiologyImg,
+        image: hospital,
       },
     ],
   },
@@ -311,7 +308,7 @@ export const services: Service[] = [
       {
         title: "نساء",
         description: "جناح إقامة للنساء يراعي الخصوصية وراحة المريضة.",
-        image: radiologyImg,
+        image: hospital,
       },
       {
         title: "أطفال",
@@ -332,13 +329,13 @@ export const services: Service[] = [
     slug: "icu",
     title: "وحدة العناية المشددة",
     description: "عناية مشددة متخصصة للحالات القلبية والداخلية والجراحية والأطفال.",
-    image: cathImg,
+    image: hospital,
     icon: "icu",
     sections: [
       {
         title: "قلبية",
         description: "عناية مشددة لمرضى القلب واضطرابات النظم والحالات الإقفارية.",
-        image: cathImg,
+        image: hospital,
       },
       {
         title: "داخلية",
@@ -348,7 +345,7 @@ export const services: Service[] = [
       {
         title: "جراحية",
         description: "عناية بعد العمليات الكبرى وللحالات الجراحية غير المستقرة.",
-        image: radiologyImg,
+        image: hospital,
       },
       {
         title: "أطفال",
@@ -361,13 +358,13 @@ export const services: Service[] = [
     slug: "catheterization",
     title: "وحدة القثطرة القلبية",
     description: "قثطرة قلبية للتشخيص وتوسيع الشرايين وتركيب الشبكات بإشراف فريق متخصص.",
-    image: cathImg,
+    image: hospital,
     icon: "heart",
     sections: [
       {
         title: "تشخيص",
         description: "قثطرة تشخيصية لتصوير الشرايين التاجية وتحديد موضع التضيق.",
-        image: cathImg,
+        image: hospital,
       },
       {
         title: "توسيع",
@@ -377,7 +374,7 @@ export const services: Service[] = [
       {
         title: "شبكات",
         description: "تركيب الشبكات القلبية عند الحاجة لاستعادة تدفق الدم.",
-        image: cathImg,
+        image: hospital,
       },
     ],
   },
@@ -393,7 +390,7 @@ export const services: Service[] = [
     slug: "cosmetics",
     title: "قسم التجميل",
     description: "خدمات التجميل الطبي ستكون متاحة قريباً ضمن مستشفى الأموي.",
-    image: eyeImg,
+    image: hospital,
     icon: "cosmetics",
     comingSoon: true,
     sections: [],
