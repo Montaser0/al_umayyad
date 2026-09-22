@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Check from "@mui/icons-material/Check";
 import Phone from "@mui/icons-material/Phone";
+import { siteWhatsAppUrl } from "../../lib/site";
 
 const features = [
   "رعاية طبية وفق معايير مهنية دقيقة",
@@ -76,7 +77,9 @@ export default function About() {
 
           <div className="mt-8">
             <a
-              href="#contact"
+              href={siteWhatsAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-[#006480]"
             >
               <Phone sx={{ fontSize: 16 }} />

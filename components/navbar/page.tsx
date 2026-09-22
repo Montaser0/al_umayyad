@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { siteWhatsAppUrl } from "../../lib/site";
 
 const navItems = [
   { label: "الرئيسية", hash: "" },
@@ -107,8 +108,10 @@ export default function Navbar() {
           </nav>
 
           <div className="flex shrink-0 items-center gap-2 md:gap-3">
-            <Link
-              href={itemHref(pathname, "#contact")}
+            <a
+              href={siteWhatsAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="
                 inline-flex
                 items-center
@@ -132,7 +135,7 @@ export default function Navbar() {
             >
               <Phone sx={{ fontSize: 20 }} />
               تواصل معنا
-            </Link>
+            </a>
 
             <button
               type="button"
