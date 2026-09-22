@@ -1,6 +1,6 @@
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "https://alumayyad-hospital.com";
+  "https://umayyad.hospital";
 
 export const siteName = "مستشفى الأموي";
 export const siteAlternateName = "مشفى الأموي";
