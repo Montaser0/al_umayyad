@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import localFont from "next/font/local";
 import { JsonLd, hospitalJsonLd } from "../lib/json-ld";
 import {
-  logoPath,
   ogImage,
   siteAlternateName,
   siteDescription,
@@ -77,8 +76,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: logoPath, type: "image/png" }],
-    apple: [{ url: logoPath }],
+    icon: [{ url: "/f.png", type: "image/png", sizes: "1254x1254" }],
+    apple: [{ url: "/f.png", sizes: "1254x1254" }],
   },
   other: {
     "geo.region": "SY-HL",
