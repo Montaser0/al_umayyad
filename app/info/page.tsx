@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import type { ReactNode } from "react";
 import Email from "@mui/icons-material/Email";
 import Language from "@mui/icons-material/Language";
@@ -10,11 +9,11 @@ import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "../../components/icon
 import {
   siteAddressText,
   siteEmail,
+  siteEnglishName,
   siteFacebookUrl,
   siteGeo,
   siteInstagramUrl,
   siteName,
-  sitePhoneDisplay,
   sitePhoneE164,
   siteUrl,
   siteWhatsAppUrl,
@@ -34,49 +33,70 @@ export const metadata: Metadata = {
   },
 };
 
+/** Local (national) format, e.g. 0985001003 */
+const sitePhoneLocal = sitePhoneE164.replace(/^\+963/, "0");
 const websiteLabel = siteUrl.replace(/^https?:\/\//, "");
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${siteGeo.latitude},${siteGeo.longitude}`;
 
-const mapsOpenUrl = `https://www.google.com/maps/search/?api=1&query=${siteGeo.latitude},${siteGeo.longitude}`;
-const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${siteGeo.latitude},${siteGeo.longitude}`;
-const mapEmbedSrc = `https://www.google.com/maps?q=${siteGeo.latitude},${siteGeo.longitude}&hl=ar&z=16&output=embed`;
-
-type InfoItem = {
-  label: string;
-  value: string;
+type LinkItem = {
+  title: string;
+  subtitle: string;
   href: string;
   icon: ReactNode;
   external?: boolean;
   ltr?: boolean;
 };
 
-const items: InfoItem[] = [
+const links: LinkItem[] = [
   {
-    label: "الموقع الإلكتروني",
-    value: websiteLabel,
+    title: "الموقع الإلكتروني",
+    subtitle: websiteLabel,
     href: siteUrl,
     icon: <Language sx={{ fontSize: 24 }} />,
     external: true,
     ltr: true,
   },
   {
-    label: "رقم التواصل",
-    value: sitePhoneDisplay,
+    title: "اتصل بنا",
+    subtitle: sitePhoneLocal,
     href: `tel:${sitePhoneE164}`,
     icon: <Phone sx={{ fontSize: 24 }} />,
     ltr: true,
   },
   {
-    label: "البريد الإلكتروني",
-    value: siteEmail,
+    title: "تواصل عبر واتساب",
+    subtitle: sitePhoneLocal,
+    href: siteWhatsAppUrl,
+    icon: <WhatsAppIcon sx={{ fontSize: 24 }} />,
+    external: true,
+    ltr: true,
+  },
+  {
+    title: "البريد الإلكتروني",
+    subtitle: siteEmail,
     href: `mailto:${siteEmail}`,
     icon: <Email sx={{ fontSize: 24 }} />,
     ltr: true,
   },
   {
-    label: "العنوان",
-    value: siteAddressText,
-    href: mapsOpenUrl,
+    title: "الموقع الجغرافي",
+    subtitle: siteAddressText,
+    href: mapsUrl,
     icon: <LocationOn sx={{ fontSize: 24 }} />,
+    external: true,
+  },
+  {
+    title: "فيسبوك",
+    subtitle: "تابعنا على فيسبوك",
+    href: siteFacebookUrl,
+    icon: <FacebookIcon sx={{ fontSize: 24 }} />,
+    external: true,
+  },
+  {
+    title: "إنستغرام",
+    subtitle: "تابعنا على إنستغرام",
+    href: siteInstagramUrl,
+    icon: <InstagramIcon sx={{ fontSize: 24 }} />,
     external: true,
   },
 ];
@@ -90,124 +110,67 @@ const socialLinks = [
 export default function InfoPage() {
   return (
     <main dir="rtl" className="min-h-screen w-full bg-foreground text-background">
-      <div className="mx-auto max-w-[560px] px-5 py-14 md:py-16">
-        {/* Logo — no wrapper, same as the footer */}
-        <div className="flex flex-col items-center text-center">
-          <Image
-            src="/logo2.PNG"
-            alt={`شعار ${siteName}`}
-            width={280}
-            height={280}
-            priority
-            className="h-52 w-52 object-contain md:h-64 md:w-64"
-          />
-          <h1 className="-mt-4 text-lg font-bold text-primary">تواصل معنا الآن</h1>
+      <div className="mx-auto flex max-w-[620px] flex-col items-center px-5 pb-12 pt-10">
+        {/* Profile */}
+        <Image
+          src="/logo2.PNG"
+          alt={`شعار ${siteName}`}
+          width={280}
+          height={280}
+          priority
+          className="-my-4 h-48 w-48 object-contain"
+        />
+        <h1 className="sr-only">{siteName}</h1>
+
+        <div className="mt-3 flex items-center justify-center gap-3">
+          {socialLinks.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <a
+                key={item.name}
+                href={item.href}
+                aria-label={item.name}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-11 w-11 items-center justify-center rounded-full text-background transition-colors hover:bg-background/10 hover:text-primary"
+              >
+                <Icon sx={{ fontSize: 26 }} />
+              </a>
+            );
+          })}
         </div>
 
-        {/* Quick actions */}
-        <div className="mt-8 grid grid-cols-2 gap-3">
-          <a
-            href={`tel:${sitePhoneE164}`}
-            className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-4 text-sm font-bold text-background transition-all hover:-translate-y-0.5 hover:bg-primary/90"
-          >
-            <Phone sx={{ fontSize: 20 }} />
-            اتصل بنا
-          </a>
-          <a
-            href={siteWhatsAppUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-md bg-tertiary px-4 py-4 text-sm font-bold text-background transition-all hover:-translate-y-0.5 hover:opacity-90"
-          >
-            <WhatsAppIcon sx={{ fontSize: 20 }} />
-            واتساب
-          </a>
-        </div>
-
-        {/* Contact list */}
-        <ul className="mt-10 space-y-6 text-center text-sm">
-          {items.map((item) => (
-            <li key={item.label}>
+        {/* Links */}
+        <ul className="mt-6 w-full space-y-4">
+          {links.map((item) => (
+            <li key={item.title}>
               <a
                 href={item.href}
                 target={item.external ? "_blank" : undefined}
                 rel={item.external ? "noopener noreferrer" : undefined}
-                className="group flex flex-col items-center gap-1.5 hover:text-primary"
+                className="group relative flex min-h-[64px] w-full items-center justify-center rounded-md bg-background px-16 py-3 text-center text-foreground transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99]"
               >
-                <span className="flex items-center justify-center gap-2 text-background/55">
-                  <span className="text-primary">{item.icon}</span>
-                  {item.label}
+                <span className="absolute right-3 flex h-10 w-10 items-center justify-center text-primary">
+                  {item.icon}
                 </span>
-                <span
-                  dir={item.ltr ? "ltr" : undefined}
-                  className="break-words text-base font-medium"
-                >
-                  {item.value}
+                <span className="min-w-0">
+                  <span className="block text-[15px] font-bold leading-6">{item.title}</span>
+                  <span
+                    dir={item.ltr ? "ltr" : undefined}
+                    className="block truncate text-xs leading-5 text-foreground/55"
+                  >
+                    {item.subtitle}
+                  </span>
                 </span>
               </a>
             </li>
           ))}
         </ul>
 
-        {/* Map */}
-        <section aria-labelledby="location-title" className="mt-12 text-center">
-          <h2 id="location-title" className="text-lg font-bold text-primary">
-            الموقع الجغرافي
-          </h2>
-          <div className="mt-6 overflow-hidden rounded-2xl border border-background/15">
-            <iframe
-              title={`موقع ${siteName} في مدينة بزاعة على الخريطة`}
-              src={mapEmbedSrc}
-              className="h-[300px] w-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
-          </div>
-          <a
-            href={mapsDirectionsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-md border border-primary px-5 py-4 text-sm font-bold text-primary transition-all hover:bg-primary hover:text-background"
-          >
-            <LocationOn sx={{ fontSize: 20 }} />
-            احصل على الاتجاهات
-          </a>
-        </section>
-
-        {/* Social */}
-        <section aria-labelledby="social-title" className="mt-12 text-center">
-          <h2 id="social-title" className="text-lg font-bold text-primary">
-            تابعنا عبر وسائل التواصل!
-          </h2>
-          <div className="mt-6 flex items-center justify-center gap-4">
-            {socialLinks.map((item) => {
-              const Icon = item.icon;
-
-              return (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  aria-label={item.name}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-14 w-14 items-center justify-center rounded-full bg-background text-foreground transition-transform hover:-translate-y-0.5"
-                >
-                  <Icon sx={{ fontSize: 26 }} />
-                </a>
-              );
-            })}
-          </div>
-        </section>
-
-        <div className="mt-12 border-t border-background/15 pt-6 text-center text-sm text-background/55">
-          <Link href="/" className="font-medium text-background hover:text-primary">
-            زيارة الموقع الرئيسي
-          </Link>
-          <p className="mt-2">
-            © {new Date().getFullYear()} مستشفى الأموي — Al-Umayyad Hospital. جميع الحقوق محفوظة
-          </p>
-        </div>
+        <p className="mt-12 text-center text-xs text-background/45">
+          © {new Date().getFullYear()} {siteName} — {siteEnglishName}
+        </p>
       </div>
     </main>
   );
