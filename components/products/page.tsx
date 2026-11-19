@@ -90,7 +90,7 @@ export default function Products() {
             return (
               <article
                 key={service.slug}
-                className="group overflow-hidden rounded-2xl border border-primary/10 bg-background shadow-[0_10px_30px_rgba(28,43,58,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(0,120,153,0.12)]"
+                className="group overflow-hidden rounded-2xl border border-primary/10 bg-background shadow-[0_10px_30px_rgba(28,43,58,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(11,142,154,0.12)]"
               >
                 {service.comingSoon ? (
                   <div className="flex h-full flex-col">{cardInner}</div>

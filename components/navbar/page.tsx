@@ -65,7 +65,7 @@ export default function Navbar() {
     <>
       <header
         dir="rtl"
-        className="fixed top-0 right-0 left-0 z-50 w-full border-b border-primary/10 bg-background shadow-[0_6px_20px_rgba(0,120,153,0.06)]"
+        className="fixed top-0 right-0 left-0 z-50 w-full border-b border-primary/10 bg-background shadow-[0_6px_20px_rgba(11,142,154,0.06)]"
       >
         <div className="mx-auto flex h-[88px] max-w-[1500px] items-center justify-between px-4 md:px-6">
           <Link
@@ -73,12 +73,12 @@ export default function Navbar() {
             className="flex h-20 w-[120px] shrink-0 items-center justify-center md:w-[150px]"
           >
             <Image
-              src="/logo.PNG"
+              src="/logo-v2.png"
               alt="شعار مستشفى الأموي"
               width={180}
               height={180}
               priority
-              className="h-40 w-auto max-w-none object-contain drop-shadow-[0_8px_18px_rgba(0,120,153,0.1)] md:h-60"
+              className="h-40 w-auto max-w-none object-contain drop-shadow-[0_8px_18px_rgba(11,142,154,0.1)] md:h-60"
             />
           </Link>
 
@@ -123,7 +123,7 @@ export default function Navbar() {
                 text-sm
                 font-bold
                 text-background
-                shadow-[0_12px_25px_rgba(0,120,153,0.18)]
+                shadow-[0_12px_25px_rgba(11,142,154,0.18)]
                 transition-all
                 duration-300
                 hover:-translate-y-0.5

@@ -114,7 +114,7 @@ export default function InfoPage() {
       <div className="mx-auto flex max-w-[620px] flex-col items-center px-5 pb-12 pt-10">
         {/* Profile */}
         <Image
-          src="/logo2.PNG"
+          src="/logo2-v2.png"
           alt={`شعار ${siteName}`}
           width={280}
           height={280}

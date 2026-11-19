@@ -60,10 +60,10 @@ export const siteGeo = {
 export const siteMapsUrl = "https://maps.app.goo.gl/9tzBSJqcdyvFZkws7";
 
 export const ogImage = {
-  url: "/hospital.PNG",
+  url: "/hospital-v2.png",
   width: 1200,
   height: 630,
   alt: "مستشفى الأموي في مدينة بزاعة",
 } as const;
 
-export const logoPath = "/logo.PNG";
+export const logoPath = "/logo-v2.png";

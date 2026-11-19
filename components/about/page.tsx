@@ -80,7 +80,7 @@ export default function About() {
               href={siteWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-[#006480]"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-[#087680]"
             >
               <Phone sx={{ fontSize: 16 }} />
               اتصل بنا
@@ -88,9 +88,9 @@ export default function About() {
           </div>
         </div>
 
-        <div className="w-full overflow-hidden rounded-2xl shadow-[0_12px_40px_rgba(0,120,153,0.28)]">
+        <div className="w-full overflow-hidden rounded-2xl shadow-[0_12px_40px_rgba(11,142,154,0.28)]">
           <Image
-            src="/hospital.PNG"
+            src="/hospital-v2.png"
             alt="مستشفى الأموي في مدينة بزاعة"
             width={1400}
             height={600}

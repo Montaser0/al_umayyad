@@ -23,7 +23,7 @@ const expoArabic = localFont({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#007899",
+  themeColor: "#0b8e9a",
   colorScheme: "light",
 };
 
@@ -77,8 +77,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/f.png", type: "image/png", sizes: "1254x1254" }],
-    apple: [{ url: "/f.png", sizes: "1254x1254" }],
+    icon: [{ url: "/icon-v2.png", type: "image/png", sizes: "1254x1254" }],
+    apple: [{ url: "/icon-v2.png", sizes: "1254x1254" }],
   },
   other: {
     "geo.region": "SY-HL",

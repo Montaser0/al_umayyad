@@ -28,7 +28,7 @@ export type Service = {
   sections: ServiceSection[];
 };
 
-const hospital = "/hospital.PNG";
+const hospital = "/hospital-v2.png";
 
 export const services: Service[] = [
   {

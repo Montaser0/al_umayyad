@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/hospital.PNG"
+            src="/hospital-v2.png"
             alt="مستشفى الأموي في مدينة بزاعة"
             fill
             priority

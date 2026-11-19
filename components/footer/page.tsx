@@ -27,7 +27,7 @@ export default function Footer() {
       <div className="mx-auto max-w-[1100px] px-5 py-14 md:px-10 lg:py-16">
         <div className="flex flex-col items-center text-center">
           <Image
-            src="/logo2.PNG"
+            src="/logo2-v2.png"
             alt="شعار مستشفى الأموي"
             width={280}
             height={280}
