@@ -30,7 +30,7 @@ export const siteKeywords = [
   "ريف حلب الشرقي",
 ];
 
-export const siteEmail = "alumayyadhospital@gmail.com";
+export const siteEmail = "info@umayyad.hospital";
 
 export const sitePhoneDisplay = "+963 985 001 003";
 export const sitePhoneE164 = "+963985001003";
