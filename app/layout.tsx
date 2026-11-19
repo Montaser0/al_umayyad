@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import { JsonLd, hospitalJsonLd } from "../lib/json-ld";
 import {
   ogImage,
@@ -92,8 +93,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ar" dir="rtl" className={`${expoArabic.variable} ${expoArabic.className}`}>
       <body>
-        <JsonLd data={hospitalJsonLd()} />
-        {children}
+        <AppRouterCacheProvider>
+          <JsonLd data={hospitalJsonLd()} />
+          {children}
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

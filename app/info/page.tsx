@@ -5,6 +5,7 @@ import Email from "@mui/icons-material/Email";
 import Language from "@mui/icons-material/Language";
 import LocationOn from "@mui/icons-material/LocationOn";
 import Phone from "@mui/icons-material/Phone";
+import ShareButton from "../../components/info/ShareButton";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "../../components/icons/social";
 import {
   siteAddressText,
@@ -144,12 +145,15 @@ export default function InfoPage() {
         {/* Links */}
         <ul className="mt-6 w-full space-y-4">
           {links.map((item) => (
-            <li key={item.title}>
+            <li
+              key={item.title}
+              className="relative rounded-md bg-background text-foreground transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99]"
+            >
               <a
                 href={item.href}
                 target={item.external ? "_blank" : undefined}
                 rel={item.external ? "noopener noreferrer" : undefined}
-                className="group relative flex min-h-[64px] w-full items-center justify-center rounded-md bg-background px-16 py-3 text-center text-foreground transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99]"
+                className="relative flex min-h-[64px] w-full items-center justify-center px-16 py-3 text-center"
               >
                 <span className="absolute right-3 flex h-10 w-10 items-center justify-center text-primary">
                   {item.icon}
@@ -164,6 +168,11 @@ export default function InfoPage() {
                   </span>
                 </span>
               </a>
+              <ShareButton
+                title={item.title}
+                text={`${item.title}: ${item.subtitle}`}
+                url={item.href.startsWith("http") ? item.href : undefined}
+              />
             </li>
           ))}
         </ul>
