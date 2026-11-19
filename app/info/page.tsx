@@ -170,6 +170,8 @@ export default function InfoPage() {
               </a>
               <ShareButton
                 title={item.title}
+                subtitle={item.subtitle}
+                icon={item.icon}
                 text={`${item.title}: ${item.subtitle}`}
                 url={item.href.startsWith("http") ? item.href : undefined}
               />
